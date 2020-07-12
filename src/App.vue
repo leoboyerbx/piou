@@ -5,7 +5,7 @@
       <Settings
         @start-game="startGame" />
     </Content>
-    <Game v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
+    <Game @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
   </div>
 </template>
 

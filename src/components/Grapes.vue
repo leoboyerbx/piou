@@ -10,7 +10,7 @@
 </svg>
 
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" :viewBox="viewBox" style="overflow:visible;enable-background:new 0 0 687 840;" xml:space="preserve">
-    <circle @click="handleGrape(grape)" v-for="grape in grapes" class="grape" :class="[grape.colorClass, {visible: grape.visible, selected: grape.selected}]" :key="grape.key" :cx="grape.cx" :cy="grape.cy" :r="grapeRad" />
+    <circle @click="handleGrape(grape)" v-for="grape in grapes" class="grape" :class="[grape.colorClass, {visible: grape.visible, selected: grape.selected && selectionMode }]" :key="grape.key" :cx="grape.cx" :cy="grape.cy" :r="grapeRad" />
 </svg>
   </div>
 </template>
@@ -23,6 +23,10 @@ export default {
   props: {
     linesNum: {
       type: Number,
+      required: true
+    },
+    selectionMode: {
+      type: Boolean,
       required: true
     }
   },
@@ -70,8 +74,27 @@ export default {
     }
   },
   methods: {
+    grapeByKey (key) {
+      this.grapes.forEach(grape => {
+        if (grape.key === key) return grape
+      })
+    },
+
+    clearSelection () {
+      this.grapes.forEach(grape => {
+        grape.selected = false
+      })
+    },
+
     handleGrape (grape) {
-      grape.visible = false
+      if (this.selectionMode) {
+        this.clearSelection()
+        grape.selected = true
+        this.$emit('select', grape.key)
+      } else {
+        grape.visible = false
+        this.$emit('eat', grape.key)
+      }
     }
   }
 
@@ -100,9 +123,13 @@ export default {
     height: 60px;
   }
   .grape {
-    opacity: 0;
+    display: none;
     &.visible {
-      opacity: 1;
+      display: block;
+    }
+    &.selected {
+      fill: $selection;
+      display: block;
     }
   }
 }
