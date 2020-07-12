@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <input type="number" min="4" v-model="linesNum">
+    </div>
+    <Grapes :linesNum="linesInt" />
+    <p>Hey</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Grapes from './components/Grapes.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Grapes
+  },
+  data () {
+    return {
+      linesNum: '4'
+    }
+  },
+  computed: {
+    linesInt () {
+      return parseInt(this.linesNum)
+    }
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "@/scss/globals";
+@import "@/scss/buttons";
+
 </style>
