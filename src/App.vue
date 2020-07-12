@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <TopBar @new-game="newGame" :folded="currentStep !== 'initial'" />
+    <TopBar @new-game="newGame" :folded="currentStep !== 'initial'" :hidden="currentStep === 'playing'" />
     <Content v-show="currentStep ==='settings' || currentStep ==='initial'">
       <Settings
         @start-game="startGame" />
     </Content>
-    <Content v-if="currentStep ==='playing'">
-
-    </Content>
+    <Game v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
   </div>
 </template>
 
@@ -15,13 +13,15 @@
 import Content from './components/Content.vue'
 import TopBar from './components/TopBar.vue'
 import Settings from './components/Settings.vue'
+import Game from './components/Game.vue'
 
 export default {
   name: 'App',
   components: {
     Content,
     TopBar,
-    Settings
+    Settings,
+    Game
   },
   data () {
     return {
@@ -41,7 +41,7 @@ export default {
     },
     startGame (gameSettings) {
       this.gameSettings = gameSettings
-      // this.currentStep
+      this.currentStep = 'playing'
     }
   }
 }

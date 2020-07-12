@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #07594d;
+      }
+
+      .cls-2 {
+        fill: #2f6f4d;
+      }
+
+      .cls-3 {
+        fill: #8e6939;
+      }
+
+      .cls-4 {
+        fill: #5d73d8;
+      }
+
+      .cls-5 {
+        fill: #778de0;
+      }
+
+      .cls-6 {
+        fill: #3560bf;
+      }
+    </style>
+  </defs>
+  <g id="Tige">
+    <g>
+      <path class="cls-1" d="M97,12.57l.22,101.16S68.9,88,68.9,62.4,97,12.57,97,12.57Z"/>
+      <path class="cls-2" d="M97.09,113.66,96.87,12.5S125.2,38.27,125.2,63.82,97.09,113.66,97.09,113.66Z"/>
+      <rect class="cls-3" x="74.69" y="64.18" width="17.17" height="90.35" rx="6.38" transform="translate(-52.94 90.92) rotate(-45)"/>
+    </g>
+  </g>
+  <g id="Grapes">
+    <circle class="cls-4" cx="92.54" cy="174.85" r="42.01"/>
+    <circle class="cls-5" cx="155.15" cy="112.24" r="42.01"/>
+    <circle class="cls-4" cx="211.38" cy="293.68" r="42.01"/>
+    <circle class="cls-5" cx="273.99" cy="231.07" r="42.01"/>
+    <circle class="cls-6" cx="245.88" cy="140.35" r="42.01"/>
+    <circle class="cls-5" cx="118.74" cy="267.49" r="42.01"/>
+    <circle class="cls-6" cx="181.99" cy="204.24" r="42.01"/>
+    <circle class="cls-6" cx="302.74" cy="324.99" r="42.01"/>
+  </g>
+</svg>

@@ -31,7 +31,8 @@ export default {
     },
     hidden: {
       type: Boolean,
-      required: true
+      required: false,
+      default: false
     }
   },
   data: () => ({
@@ -74,6 +75,7 @@ export default {
   }
   &.hidden {
     transform: translate3d(0, -100%, 0);
+   opacity: 0;
   }
   z-index: 1000;
 

@@ -1,0 +1,22 @@
+<svg id="Tige" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173 115">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #07594d;
+      }
+
+      .cls-2 {
+        fill: #2f6f4d;
+      }
+
+      .cls-3 {
+        fill: #8e6939;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-1" d="M173,0,94,79.33S92,37,112,17,173,0,173,0Z"/>
+    <path class="cls-2" d="M93.94,79.17l79-79.33s2,42.33-18,62.33S93.94,79.17,93.94,79.17Z"/>
+    <rect class="cls-3" x="77" y="15" width="19" height="100" rx="9.5"/>
+  </g>
+</svg>

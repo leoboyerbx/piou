@@ -15,6 +15,10 @@
     &:hover {
         background-color: $theme-color2;
     }
+    &:disabled {
+        background-color: lighten($color: $theme-color2, $amount: 20);
+        
+    }
 }
 .btn-outline-theme {
     color: inherit;
