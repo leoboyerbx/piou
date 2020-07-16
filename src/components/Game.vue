@@ -1,6 +1,6 @@
 <template>
   <div id="game">
-    <div class="grapes-wrapper">
+    <div class="grapes-wrapper" :style="{ 'margin-bottom': (this.hintHeight + 30) + 'px' }">
       <Grapes :linesNum="gameSettings.linesNum"
               :selectionMode="['selectGrape', 'piou', 'victory'].includes(gameStep)"
               @select="selectGrape"
@@ -16,7 +16,7 @@
           <div v-show="gameStep === 'victory' && !willLose">victory !</div>
         </transition>
     </div>
-    <div id="hint-wrapper">
+    <div id="hint-wrapper" ref="hintWrapper">
       <div class="hint" v-show="gameStep === 'selectGrape'">
         <p><strong>{{ selectingPlayer.name }}</strong> chooses a grape without <strong>{{ searchingPlayer.name }}</strong> seeing it !</p>
         <div class="buttons">
@@ -83,13 +83,16 @@ export default {
     gameStep: 'selectGrape',
     willLose: false,
     grapesNum: null,
-    eatenGrapes: 0
+    eatenGrapes: 0,
+    hintHeight: 20
   }),
   mounted () {
     this.player1.name = this.gameSettings.player1
     this.player2.name = this.gameSettings.player2
 
     this.grapesNum = this.$refs.grapes.grapes.length
+
+    this.setHintHeight()
   },
   computed: {
     searchingPlayer () {
@@ -100,6 +103,9 @@ export default {
     }
   },
   methods: {
+    setHintHeight () {
+      this.hintHeight = this.$refs.hintWrapper.clientHeight
+    },
     selectGrape (key) {
       this.targetGrape = key
     },
@@ -162,19 +168,18 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
   overflow: hidden;
 }
 
 .grapes-wrapper {
   width: 90%;
+  max-width: 500px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: scroll;
-  overflow-x: visible;
+  margin-bottom: 100px;
 }
 
 .piou-wrapper {
@@ -209,7 +214,7 @@ export default {
 }
 
 #hint-wrapper {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -232,7 +237,7 @@ export default {
   }
 }
 .scores-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
