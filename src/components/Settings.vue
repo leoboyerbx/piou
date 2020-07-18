@@ -2,7 +2,7 @@
     <div id="settings">
         <div class="settings-fields">
           <form @submit.prevent="startGame">
-            <h1>Who's playing ?</h1>
+            <!--<h1>Who's playing ?</h1>-->
             <div class="input-container">
               <input v-model="player1" type="text" id="player1" required="required" />
               <label for="player1">Player 1</label>
@@ -19,7 +19,10 @@
               <label for="numlines">Number of lines</label>
               <div class="bar"></div>
             </div>
-            <button class="btn btn-theme" type="submit">Start</button>
+            <div class="buttons">
+              <router-link to="/select-game" class="btn btn-light">Back</router-link>
+              <button class="btn btn-theme" type="submit">Start</button>
+            </div>
           </form>
         </div>
     </div>
@@ -54,6 +57,7 @@ export default {
     position: absolute;
     height: 100%;
     width: 100%;
+    margin-bottom: 20px;
 
     form {
       height: 100%;
@@ -74,7 +78,13 @@ export default {
       margin-bottom: 40px;
     }
     button {
+      margin: 0 10px;
+    }
+    .buttons {
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      padding: 0 -10px;
     }
   }
 </style>

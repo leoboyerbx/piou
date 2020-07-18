@@ -17,7 +17,7 @@
     }
     &:disabled {
         background-color: lighten($color: $theme-color2, $amount: 20);
-        
+
     }
 }
 .btn-outline-theme {
@@ -32,7 +32,10 @@
     background-color: $theme-white;
     color: $theme-grey-dark;
     &:hover {
-        background-color: #fff;
+        background-color: $theme-grey-light;
+    }
+    &._color {
+        color: $theme-color1;
     }
 }
 .btn-outline-light {

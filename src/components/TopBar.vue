@@ -9,7 +9,7 @@
           <h1>Piou !</h1>
           <p>The grape game.</p>
         </span>
-        <router-link to="/1v1">
+        <router-link to="/select-game">
           <button @click="newGame" class="btn btn-theme">New game</button>
         </router-link>
       </div>

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store'
 import Mode1v1 from '../views/Mode1v1'
+import GameSelector from '../views/GameSelector'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,15 @@ const routes = [
     component: Home,
     beforeEnter (to, from, next) {
       topBar('expanded')
+      next()
+    }
+  },
+  {
+    path: '/select-game',
+    name: 'Piou !',
+    component: GameSelector,
+    beforeEnter (to, from, next) {
+      topBar('default')
       next()
     }
   },

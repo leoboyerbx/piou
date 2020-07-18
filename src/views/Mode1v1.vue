@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Content v-show="currentStep ==='settings'">
+    <Content v-show="currentStep ==='settings'" class="settings-wrapper">
       <Settings
         @start-game="startGame" />
     </Content>
@@ -50,5 +50,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>
