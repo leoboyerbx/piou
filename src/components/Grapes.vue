@@ -81,6 +81,18 @@ export default {
       })
     },
 
+    randomGrape (onlyVisible = false) {
+      if (onlyVisible) {
+        let target
+        do {
+          target = pickRandom(this.grapes)
+        } while (target.visible === false)
+        return target
+      } else {
+        return pickRandom(this.grapes)
+      }
+    },
+
     clearSelection () {
       this.grapes.forEach(grape => {
         grape.selected = false

@@ -51,38 +51,33 @@ export default {
     targetGrape: null,
     gameStep: 'searching',
     grapesNum: null,
-    eatenGrapes: 0,
-    progress: 0
+    eatenGrapes: [],
+    eatingProgress: 0
   }),
   mounted () {
     this.grapesNum = this.$refs.grapes.grapes.length
+    this.targetRandomGrape()
   },
   computed: {
+    progress () {
+      return (this.eatingProgress / this.grapesNum)
+    }
   },
   methods: {
     startSearching () {
       this.gameStep = 'searching'
     },
+    targetRandomGrape () {
+      this.targetGrape = this.$refs.grapes.randomGrape(true).key
+    },
     eatGrape (key) {
-      this.eatenGrapes++
+      this.eatenGrapes.push(key)
       if (key === this.targetGrape) {
-        this.willLose = true
-        this.searchingPlayer.score++
-        if (this.eatenGrapes >= this.grapesNum - 2) {
-          this.invertSearchingPlayer()
-          this.gameStep = 'victory'
-        }
+        this.gameStep = 'piou'
+        this.targetRandomGrape()
+        this.eatingProgress = 0
       } else {
-        if (this.willLose) {
-          this.gameStep = 'piou'
-          this.willLose = false
-          this.targetGrape = null
-        } else {
-          this.searchingPlayer.score++
-          if (this.eatenGrapes >= this.grapesNum - 1) { // If the before-last has been eaten and is not loosing
-            this.gameStep = 'victory'
-          }
-        }
+        this.eatingProgress++
       }
     },
     startOver () {
