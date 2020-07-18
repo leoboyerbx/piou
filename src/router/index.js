@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import store from '../store'
 import Mode1v1 from '../views/Mode1v1'
 import GameSelector from '../views/GameSelector'
+import ModeGroup from '@/views/ModeGroup'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ function topBar (set) {
 
 const routes = [
   {
-    path: '/',
+    path: '*',
     name: 'Home',
     component: Home,
     beforeEnter (to, from, next) {
@@ -34,6 +35,15 @@ const routes = [
     path: '/1v1',
     name: 'Piou 1v1',
     component: Mode1v1,
+    beforeEnter (to, from, next) {
+      topBar('default')
+      next()
+    }
+  },
+  {
+    path: '/group',
+    name: 'Piou group game',
+    component: ModeGroup,
     beforeEnter (to, from, next) {
       topBar('default')
       next()

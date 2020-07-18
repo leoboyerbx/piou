@@ -1,7 +1,7 @@
 <template>
   <div id="game">
     <div class="grapes-wrapper" :style="{ 'margin-bottom': (this.hintHeight + 30) + 'px' }">
-      <Grapes :lines="gameSettings.linesNum"
+      <Grapes :linesNum="gameSettings.linesNum"
               :selectionMode="['selectGrape', 'piou', 'victory'].includes(gameStep)"
               @select="selectGrape"
               @eat="eatGrape"
@@ -58,7 +58,7 @@
 import Grapes from '@/components/Grapes.vue'
 
 export default {
-  name: 'Game1v1',
+  name: 'GameGroup',
   components: {
     Grapes
   },

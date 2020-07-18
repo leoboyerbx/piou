@@ -21,8 +21,7 @@ const pickRandom = array => (array[Math.floor(Math.random() * array.length)])
 export default {
   name: 'Grapes',
   props: {
-    linesNum: {
-      type: Number,
+    lines: {
       required: true
     },
     selectionMode: {
@@ -35,7 +34,6 @@ export default {
       grapeRad: 20,
       margin: 3,
       grapes: []
-      // linesNum: 5
     }
   },
   beforeMount () {
@@ -61,6 +59,9 @@ export default {
     this.grapes = grapes
   },
   computed: {
+    linesNum () {
+      return parseInt(this.lines)
+    },
     grapeDiam () {
       return this.grapeRad * 2
     },

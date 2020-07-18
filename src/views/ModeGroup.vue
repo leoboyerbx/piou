@@ -3,27 +3,8 @@
     <Content v-show="currentStep ==='settings'" class="settings-wrapper">
       <Settings
         @start-game="startGame"
+        title="Game settings"
         :fields="[
-            {
-              name: 'player1',
-              type: 'input',
-              inputType: 'text',
-              label: 'Player 1',
-              initial: '',
-              required: true
-            },
-            {
-              name: 'vs',
-              type: 'vs'
-            },
-            {
-              name: 'player2',
-              type: 'input',
-              inputType: 'text',
-              label: 'Player 2',
-              initial: '',
-              required: true
-            },
             {
               name: 'linesNum',
               type: 'input',
@@ -36,21 +17,21 @@
           ]"
       />
     </Content>
-    <Game1v1 @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
+    <GameGroup @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
   </div>
 </template>
 
 <script>
 import Content from '@/components/Content.vue'
 import Settings from '@/components/Settings.vue'
-import Game1v1 from '@/components/Game1v1'
+import GameGroup from '@/components/GameGroup'
 
 export default {
-  name: 'Mode1v1',
+  name: 'ModeGroup',
   components: {
+    GameGroup,
     Content,
-    Settings,
-    Game1v1
+    Settings
   },
   data () {
     return {

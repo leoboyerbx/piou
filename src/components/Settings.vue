@@ -2,22 +2,18 @@
     <div id="settings">
         <div class="settings-fields">
           <form @submit.prevent="startGame">
+            <h1 v-if="title">{{ title }}</h1>
             <!--<h1>Who's playing ?</h1>-->
-            <div class="input-container">
-              <input v-model="player1" type="text" id="player1" required="required" />
-              <label for="player1">Player 1</label>
-              <div class="bar"></div>
-            </div>
-            <p class="vs">VS</p>
-            <div class="input-container">
-              <input v-model="player2" type="text" id="player2" required="required" />
-              <label for="player2">Player 2</label>
-              <div class="bar"></div>
-            </div>
-            <div class="input-container">
-              <input v-model="linesNum" type="number" min="4" id="numlines" required="required" />
-              <label for="numlines">Number of lines</label>
-              <div class="bar"></div>
+            <div v-for="field in fields" :key="field.name">
+
+              <div v-if="field.type === 'input'" class="input-container" >
+                <input v-model="fieldsValues[field.name]" :type="field.inputType" :id="field.name" :required="field.required" :min="field.min || ''" />
+                <label :for="field.name">{{ field.label }}</label>
+                <div class="bar"></div>
+              </div>
+
+              <p v-else-if="field.type === 'vs'" class="vs">VS</p>
+              <p v-else-if="field.type === 'p'" :class="field.class">VS</p>
             </div>
             <div class="buttons">
               <router-link to="/select-game" class="btn btn-light">Back</router-link>
@@ -31,19 +27,31 @@
 <script>
 export default {
   name: 'Settings',
-  data: () => ({
-    player1: '',
-    player2: '',
-    linesNum: 6
-  }),
+  props: {
+    fields: {
+      type: Array,
+      required: true
+    },
+    title: {
+      type: String,
+      required: false
+    }
+  },
+  data () {
+    const fieldsValues = {}
+    for (const field of this.fields) {
+      if (field.type === 'input') {
+        fieldsValues[field.name] = field.initial || ''
+      }
+    }
+
+    return {
+      fieldsValues
+    }
+  },
   methods: {
     startGame () {
-      const { player1, player2, linesNum } = this
-      this.$emit('start-game', {
-        player1,
-        player2,
-        linesNum: parseInt(linesNum)
-      })
+      this.$emit('start-game', this.fieldsValues)
     }
   }
 }
