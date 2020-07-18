@@ -58,7 +58,7 @@
 import Grapes from './Grapes.vue'
 
 export default {
-  name: 'Game',
+  name: 'Game1v1',
   components: {
     Grapes
   },
@@ -121,7 +121,7 @@ export default {
       if (key === this.targetGrape) {
         this.willLose = true
         this.searchingPlayer.score++
-        if (this.eatenGrapes + 1 === this.grapesNum) {
+        if (this.eatenGrapes >= this.grapesNum - 2) {
           this.invertSearchingPlayer()
           this.gameStep = 'victory'
         }
@@ -132,7 +132,7 @@ export default {
           this.targetGrape = null
         } else {
           this.searchingPlayer.score++
-          if (this.eatenGrapes + 1 === this.grapesNum) { // If the before-last has been eaten and is not loosing
+          if (this.eatenGrapes >= this.grapesNum - 1) { // If the before-last has been eaten and is not loosing
             this.gameStep = 'victory'
           }
         }

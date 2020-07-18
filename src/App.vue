@@ -5,7 +5,7 @@
       <Settings
         @start-game="startGame" />
     </Content>
-    <Game @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
+    <Game1v1 @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 import Content from './components/Content.vue'
 import TopBar from './components/TopBar.vue'
 import Settings from './components/Settings.vue'
-import Game from './components/Game.vue'
+import Game1v1 from './components/Game1v1.vue'
 
 export default {
   name: 'App',
@@ -21,11 +21,10 @@ export default {
     Content,
     TopBar,
     Settings,
-    Game
+    Game1v1
   },
   data () {
     return {
-      currentStep: 'initial',
       linesNum: '4',
       gameSettings: {}
     }
@@ -33,15 +32,21 @@ export default {
   computed: {
     linesInt () {
       return parseInt(this.linesNum)
+    },
+    currentStep () {
+      return this.$store.state.currentStep
     }
   },
   methods: {
+    setStep (step) {
+      this.$store.commit('currentStep', step)
+    },
     newGame () {
-      this.currentStep = 'settings'
+      this.setStep('settings')
     },
     startGame (gameSettings) {
       this.gameSettings = gameSettings
-      this.currentStep = 'playing'
+      this.setStep('playing')
     }
   }
 }
