@@ -1,65 +1,44 @@
 <template>
   <div id="game">
-    <div class="grapes-wrapper" :style="{ 'margin-bottom': (this.hintHeight + 30) + 'px' }">
-      <Grapes :linesNum="gameSettings.linesNum"
-              :selectionMode="['selectGrape', 'piou', 'victory'].includes(gameStep)"
-              @select="selectGrape"
+    <div class="grapes-wrapper">
+      <Grapes :lines="gameSettings.linesNum"
+              :selectionMode="false"
               @eat="eatGrape"
               ref="grapes"
                />
     </div>
     <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'victory'}">
         <transition name="slide">
-          <div v-show="gameStep === 'piou' || willLose">piou !</div>
+          <div v-show="gameStep === 'piou'">piou !</div>
         </transition>
         <transition name="slide">
-          <div v-show="gameStep === 'victory' && !willLose">victory !</div>
+          <div v-show="gameStep === 'victory'">victory !</div>
         </transition>
     </div>
     <div id="hint-wrapper" ref="hintWrapper">
-      <div class="hint" v-show="gameStep === 'selectGrape'">
-        <p><strong>{{ selectingPlayer.name }}</strong> chooses a grape without <strong>{{ searchingPlayer.name }}</strong> seeing it !</p>
-        <div class="buttons">
-          <button class="btn btn-theme" @click="startSearching" :disabled="targetGrape === null">Ok</button>
-        </div>
-      </div>
-      <div class="hint" v-show="gameStep === 'searching'">
-        <p><strong>{{ searchingPlayer.name }}</strong> tries to eat as much grapes as possibles...</p>
-      </div>
       <div class="hint" v-show="gameStep === 'piou'">
-        <p><strong>{{ searchingPlayer.name }}</strong> lost !</p>
+        <p><strong>Defaite</strong></p>
         <div class="buttons">
           <button class="btn btn-light" @click="startOver">Start over</button>
           <button class="btn btn-theme" @click="continueGame">Continue</button>
         </div>
       </div>
-      <div class="hint" v-show="gameStep === 'victory'">
-        <p v-if="searchingPlayer.score >= selectingPlayer.score"><strong>{{ searchingPlayer.name }}</strong> won !</p>
-        <p v-else><strong>{{ searchingPlayer.name }}</strong> won but <strong>{{ selectingPlayer.name }}</strong> ate more grapes !</p>
-        <div class="buttons">
-          <button class="btn btn-theme" @click="startOver">Start over</button>
-        </div>
-      </div>
     </div>
-    <div class="scores-wrapper" :class="{white: gameStep === 'piou' || gameStep === 'victory'}">
-      <div class="score">
-        <strong>{{ player1.name }}</strong><br>
-        {{ player1.score }}
-      </div>
-      <div class="score">
-        <strong>{{ player2.name }}</strong><br>
-        {{ player2.score }}
-      </div>
+
+    <div id="glass-wrapper">
+      <Glass :progress="progress" />
     </div>
   </div>
 </template>
 
 <script>
 import Grapes from '@/components/Grapes.vue'
+import Glass from '@/components/Glass'
 
 export default {
   name: 'GameGroup',
   components: {
+    Glass,
     Grapes
   },
   props: {
@@ -69,53 +48,21 @@ export default {
     }
   },
   data: () => ({
-    player1: {
-      name: '',
-      score: 0
-    },
-    player2: {
-      name: '',
-      score: 0
-    },
-    searchingPlayerId: 2,
-    linesNum: 6,
     targetGrape: null,
-    gameStep: 'selectGrape',
-    willLose: false,
+    gameStep: 'searching',
     grapesNum: null,
     eatenGrapes: 0,
-    hintHeight: 20
+    progress: 0
   }),
   mounted () {
-    this.player1.name = this.gameSettings.player1
-    this.player2.name = this.gameSettings.player2
-
     this.grapesNum = this.$refs.grapes.grapes.length
-
-    this.setHintHeight()
   },
   computed: {
-    searchingPlayer () {
-      return this['player' + this.searchingPlayerId]
-    },
-    selectingPlayer () {
-      return this['player' + (3 - this.searchingPlayerId)]
-    }
   },
   methods: {
-    setHintHeight () {
-      this.hintHeight = this.$refs.hintWrapper.clientHeight
-    },
-    selectGrape (key) {
-      this.targetGrape = key
-    },
     startSearching () {
       this.gameStep = 'searching'
     },
-    invertSearchingPlayer () {
-      this.searchingPlayerId = 3 - this.searchingPlayerId
-    },
-
     eatGrape (key) {
       this.eatenGrapes++
       if (key === this.targetGrape) {
@@ -175,11 +122,10 @@ export default {
 .grapes-wrapper {
   width: 90%;
   max-width: 500px;
-  margin: 30px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 100px;
+  margin: 10px auto;
 }
 
 .piou-wrapper {

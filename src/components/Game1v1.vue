@@ -78,7 +78,6 @@ export default {
       score: 0
     },
     searchingPlayerId: 2,
-    linesNum: 6,
     targetGrape: null,
     gameStep: 'selectGrape',
     willLose: false,
