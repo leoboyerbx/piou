@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store'
-import Settings from '../views/Settings'
-import Game1v1 from '../views/Game1v1'
+import Mode1v1 from '../views/Mode1v1'
 
 Vue.use(VueRouter)
 
@@ -18,23 +17,16 @@ const routes = [
     component: Home,
     beforeEnter (to, from, next) {
       topBar('expanded')
-    }
-  },
-  {
-    path: '/settings',
-    name: 'Game settings',
-    component: Settings,
-    beforeEnter (to, from, next) {
-      console.log('settings')
-      topBar('default')
+      next()
     }
   },
   {
     path: '/1v1',
     name: 'Piou 1v1',
-    component: Game1v1,
+    component: Mode1v1,
     beforeEnter (to, from, next) {
-      topBar('hidden')
+      topBar('default')
+      next()
     }
   }
 ]

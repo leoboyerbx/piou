@@ -29,16 +29,6 @@ export default {
     }
   },
   methods: {
-    setStep (step) {
-      this.$store.commit('currentStep', step)
-    },
-    newGame () {
-      this.setStep('settings')
-    },
-    startGame (gameSettings) {
-      this.gameSettings = gameSettings
-      this.setStep('playing')
-    }
   }
 }
 </script>

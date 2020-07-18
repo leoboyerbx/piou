@@ -1,5 +1,4 @@
 <template>
-  <Content>
     <div id="settings">
         <div class="settings-fields">
           <form @submit.prevent="startGame">
@@ -24,18 +23,11 @@
           </form>
         </div>
     </div>
-  </Content>
 </template>
 
 <script>
-
-import Content from '../components/Content'
-
 export default {
   name: 'Settings',
-  components: {
-    Content
-  },
   data: () => ({
     player1: '',
     player2: '',

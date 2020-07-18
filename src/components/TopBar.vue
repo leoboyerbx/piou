@@ -1,6 +1,5 @@
 <template>
   <div id="topbar" :class="{unfolded: !folded, hidden: hidden}">
-    <div class="logo"><img src="../assets/logo.svg" alt=""></div>
     <div class="folded-items">
       <MenuButton id="menubutton" />
     </div>
@@ -10,11 +9,16 @@
           <h1>Piou !</h1>
           <p>The grape game.</p>
         </span>
-        <router-link to="/settings">
+        <router-link to="/1v1">
           <button @click="newGame" class="btn btn-theme">New game</button>
         </router-link>
       </div>
     </transition>
+    <div class="logo">
+      <router-link to="/">
+        <img src="../assets/logo.svg" alt="">
+      </router-link>
+    </div>
   </div>
 </template>
 

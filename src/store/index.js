@@ -6,14 +6,14 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     topBar: 'expanded',
-    gameMode: ''
+    gameSettings: {}
   },
   mutations: {
     topBar (state, set) {
       state.topBar = set
     },
-    gameMode (state, mode) {
-      state.gameMode = mode
+    gameSettings (state, settings) {
+      state.gameSettings = settings
     }
   },
   actions: {
