@@ -10,7 +10,9 @@
           <h1>Piou !</h1>
           <p>The grape game.</p>
         </span>
-        <button @click="newGame" class="btn btn-theme">New game</button>
+        <router-link to="/settings">
+          <button @click="newGame" class="btn btn-theme">New game</button>
+        </router-link>
       </div>
     </transition>
   </div>
@@ -27,7 +29,8 @@ export default {
   props: {
     folded: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
     },
     hidden: {
       type: Boolean,

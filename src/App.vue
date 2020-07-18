@@ -1,27 +1,18 @@
 <template>
+
   <div id="app">
-    <TopBar @new-game="newGame" :folded="currentStep !== 'initial'" :hidden="currentStep === 'playing'" />
-    <Content v-show="currentStep ==='settings' || currentStep ==='initial'">
-      <Settings
-        @start-game="startGame" />
-    </Content>
-    <Game1v1 @start-over="newGame" v-if="currentStep ==='playing'" :gameSettings="gameSettings" />
+    <TopBar :folded="topBar !== 'expanded'" :hidden="topBar === 'hidden'" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Content from './components/Content.vue'
 import TopBar from './components/TopBar.vue'
-import Settings from './components/Settings.vue'
-import Game1v1 from './components/Game1v1.vue'
 
 export default {
   name: 'App',
   components: {
-    Content,
-    TopBar,
-    Settings,
-    Game1v1
+    TopBar
   },
   data () {
     return {
@@ -33,8 +24,8 @@ export default {
     linesInt () {
       return parseInt(this.linesNum)
     },
-    currentStep () {
-      return this.$store.state.currentStep
+    topBar () {
+      return this.$store.state.topBar
     }
   },
   methods: {
@@ -53,22 +44,22 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/globals";
-@import "@/scss/buttons";
-//fonts
-@import "./fonts/MarkPro.css";
+  @import "@/scss/globals";
+  @import "@/scss/buttons";
+  //fonts
+  @import "./fonts/MarkPro.css";
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-body {
+  body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: "Mark Pro", sans-serif;
     color: $theme-black;
-}
+  }
 
   .input-container {
     position: relative;

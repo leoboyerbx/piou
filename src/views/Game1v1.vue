@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import Grapes from './Grapes.vue'
+import Grapes from '@/components/Grapes.vue'
 
 export default {
   name: 'Game1v1',

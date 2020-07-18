@@ -3,14 +3,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-    currentStep: 'initial',
+    topBar: 'expanded',
     gameMode: ''
   },
   mutations: {
-    currentStep (state, step) {
-      state.currentStep = step
+    topBar (state, set) {
+      state.topBar = set
     },
     gameMode (state, mode) {
       state.gameMode = mode
@@ -21,3 +21,5 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+export default store
