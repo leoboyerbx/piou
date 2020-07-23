@@ -12,7 +12,7 @@
         <div v-show="gameStep === 'piou'">piou !</div>
       </transition>
       <transition name="slide">
-        <div v-show="gameStep === 'end'">big piou !</div>
+        <div v-show="gameStep === 'end'">PIOUU !</div>
       </transition>
     </div>
     <div class="hint-wrapper" ref="hintWrapper" :class="{ visible: ['piou', 'end'].includes(gameStep) }">
@@ -27,14 +27,15 @@
       </transition>
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'end'">
-          <p><strong>Piou !</strong> You <i>eat <strong>all the</strong> grapes</i> ;)</p>
+          <p><strong>Piou !</strong> You <i>eat <strong>all the grapes</strong> </i> ;)</p>
           <div class="buttons">
             <button class="btn btn-theme" @click="startOver">Start over</button>
           </div>
         </div>
       </transition>
       <div class="glass-wrapper">
-        <Glass :progress="progress" />
+        <Glass :progress="progress"
+               :annotation="annotation" />
       </div>
     </div>
 
@@ -73,6 +74,9 @@ export default {
   computed: {
     progress () {
       return (this.eatingProgress / this.grapesNum)
+    },
+    annotation () {
+      return this.eatingProgress === this.grapesNum ? ':o' : this.eatingProgress.toString()
     }
   },
   watch: {
