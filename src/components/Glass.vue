@@ -7,7 +7,7 @@
     c0.4,0.2,0.7,2.2,1.1,2.4c26.8,12.8,44,39.8,44,69.5v9.9c0,37.4-25.8,70.1-62.3,77.9c-1,0.2-2.1,0.4-3.1,0.6c0,0-27.8,4-33.1,27.8
     h241.1c-5.3-23.8-33.1-27.8-33.1-27.8c-1.1-0.2-2.1-0.4-3.1-0.6c-36.5-7.8-62.3-40.6-62.3-77.9v-9.9
     C174.3,366,191.5,339,218.3,326.2L218.3,326.2z"/>
-  <text id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
+  <text v-if="annotation.length > 0" id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
   <g>
     <defs>
       <path id="SVGID_1_" d="M235.1,316.8c16.4-12.7,20.3-15.2,36.8-32.2c22.2-26.8,29.4-66.1,28.8-104.6c0-1.2-0.1-6.9-0.1-8.1
@@ -20,12 +20,8 @@
     </clipPath>
     <rect :y="wineY" class="st1 wine_1" width="306" height="340"/>
   </g>
-  <g>
+  <g v-if="annotation.length > 0">
     <defs>
-      <!--<path id="SVGID_5_" d="M235.1,316.8c16.4-12.7,20.3-15.2,36.8-32.2c22.2-26.8,29.4-66.1,28.8-104.6c0-1.2-0.1-6.9-0.1-8.1
-        c-0.4-14.9-1.7-29.2-3.3-41.8C292.9,96,274.5,32.9,264.2,0H40.5C30.2,32.9,11.8,96,7.3,130.2C6.1,140,5,150.9,4.4,162.3
-        c0,0.7-0.5,18.4-0.5,19.1c1.6,47.8,4.1,73.3,28.5,102.7c15.5,18.7,35.3,32.9,55.2,42.6c0,0,20.6,12.3,67,12.3
-        S235.1,316.8,235.1,316.8z"/>-->
       <text id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
     </defs>
     <clipPath id="SVGID_6_">
@@ -48,7 +44,6 @@
     C300.4,195.3,300.3,198.5,300,201.8L300,201.8z"/>
 </g>
 </svg>
-    <!--    <div class="number" v-show="annotation">{{ annotation }}</div>-->
   </div>
 </template>
 
