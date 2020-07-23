@@ -1,7 +1,6 @@
 <template>
-  <div id="glass">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="306px"
-         height="512px" viewBox="0 0 306 512" style="overflow:visible;enable-background:new 0 0 306 512;" xml:space="preserve">
+  <div class="glass">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 306 512" style="overflow:visible;enable-background:new 0 0 306 512;" xml:space="preserve">
 <g><path class="st0" d="M218.3,326.2c0.7-0.3,0.2-1.8,0.9-2.1c19.6-9.7,36.6-22.6,51.9-41.1c22.2-26.8,28.9-66.8,28.3-105.3
     c0-1.2,1.2-4.5,1.2-5.7c-0.4-14.9-1.7-29.2-3.3-41.8C292.9,96,274.5,32.9,264.2,0H40.5C30.2,32.9,11.8,96,7.3,130.2
     C6.1,140,5,150.9,4.4,162.3c0,0.7,1.2,3.2,1.2,4C3.7,207.5,8.3,252.6,32.6,282c15.5,18.7,32.8,32.1,52.7,41.8
@@ -18,7 +17,7 @@
           <clipPath id="SVGID_2_">
       <use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
     </clipPath>
-          <rect id="wine_1" :y="wineY" class="st1" width="306" height="340"/>
+          <rect :y="wineY" class="st1 wine_1" width="306" height="340"/>
   </g>
         <path class="st2" d="M174.3,395.7v9.9c0,37.4,25.8,70.1,62.3,77.9c1,0.2,2.1,0.4,3.1,0.6c0,0,27.8,4,33.1,27.8h-20.8
     c-3.4-14.5-24.7-14.9-36.3-17.3c-36.5-7.8-62.3-51.7-62.3-89v-9.9c0-29.7,17.2-65.9,44-78.8c20.4-9.7,39.2-24.2,55-43.3
@@ -35,13 +34,13 @@
     C300.4,195.3,300.3,198.5,300,201.8L300,201.8z"/>
 </g>
 </svg>
-
+    <div class="number">18</div>
   </div>
 </template>
 
 <script>
-import gsap from 'gsap'
-
+import { gsap, CSSPlugin } from 'gsap/all'
+gsap.registerPlugin(CSSPlugin)
 export default {
   name: 'Glass',
   props: {
@@ -49,16 +48,22 @@ export default {
       required: true,
       type: Number,
       default: 0
+    },
+    annotation: {
+      required: true,
+      type: Number,
+      default: 0
     }
   },
   computed: {
     wineY () {
-      return (340 - (this.progress * 340)).toFixed(5)
+      const val = (340 - (this.progress * 340)).toFixed(5)
+      return val === 'NaN' ? 0 : val
     }
   },
   watch: {
     progress: function (newValue) {
-      gsap.to(this.$data, { duration: 0.5, tweenedNumber: newValue })
+      gsap.to(this.$data, { duration: 0.5 })
     }
   }
 }
@@ -75,18 +80,36 @@ export default {
 .st4{display:none;fill:#D83131;}
 .st5{clip-path:url(#SVGID_4_);fill:#5D73D8;}
 
-  #glass {
+  .glass {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     pointer-events: none;
+    padding: 0;
 
     svg {
       height: 100%;
       width: 100%;
+      display: block;
     }
-    #wine_1 {
+    .wine_1 {
       transform-origin: bottom center;
       transition: all .5s $transition-easing;
+    }
+
+    .number {
+      position: absolute;
+      font-weight: bold;
+      top: 0;
+      left: 0;
+      height: 65%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-outline: $theme-color3 5px;
+      font-size: 3em;
     }
   }
 </style>

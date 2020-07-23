@@ -182,7 +182,7 @@ export default {
 }
 
 .piou-wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -206,6 +206,7 @@ export default {
 
   &.visible {
     opacity: 1;
+    pointer-events: all;
     div {
       transform: translate3d(0, 0, 0);
     }

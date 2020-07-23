@@ -2,7 +2,7 @@
 
   <div id="app">
     <TopBar :folded="topBar !== 'expanded'" :hidden="topBar === 'hidden'" />
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 

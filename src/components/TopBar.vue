@@ -84,7 +84,7 @@ export default {
     transform: translate3d(0, -100%, 0);
    opacity: 0;
   }
-  z-index: 1000;
+  z-index: 100;
 
   .folded-items {
     position: absolute;

@@ -5,29 +5,39 @@
               :selectionMode="false"
               @eat="eatGrape"
               ref="grapes"
-               />
+      />
     </div>
-    <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'victory'}">
-        <transition name="slide">
-          <div v-show="gameStep === 'piou'">piou !</div>
-        </transition>
-        <transition name="slide">
-          <div v-show="gameStep === 'victory'">victory !</div>
-        </transition>
+    <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'end'}">
+      <transition name="slide">
+        <div v-show="gameStep === 'piou'">piou !</div>
+      </transition>
+      <transition name="slide">
+        <div v-show="gameStep === 'end'">big piou !</div>
+      </transition>
     </div>
-    <div id="hint-wrapper" ref="hintWrapper">
-      <div class="hint" v-show="gameStep === 'piou'">
-        <p><strong>Defaite</strong></p>
-        <div class="buttons">
-          <button class="btn btn-light" @click="startOver">Start over</button>
-          <button class="btn btn-theme" @click="continueGame">Continue</button>
+    <div class="hint-wrapper" ref="hintWrapper" :class="{ visible: ['piou', 'end'].includes(gameStep) }">
+      <transition name="hint">
+        <div class="hint" v-show="gameStep === 'piou'">
+          <p><strong>Piou !</strong> You <i>eat <strong>{{ grapesToEat }}</strong> grapes</i> ;)</p>
+          <div class="buttons">
+            <button class="btn btn-light" @click="startOver">Start over</button>
+            <button class="btn btn-theme" @click="continueGame">Continue</button>
+          </div>
         </div>
+      </transition>
+      <transition name="hint">
+        <div class="hint" v-show="gameStep === 'end'">
+          <p><strong>Piou !</strong> You <i>eat <strong>all the</strong> grapes</i> ;)</p>
+          <div class="buttons">
+            <button class="btn btn-theme" @click="startOver">Start over</button>
+          </div>
+        </div>
+      </transition>
+      <div class="glass-wrapper">
+        <Glass :progress="progress" />
       </div>
     </div>
 
-    <div id="glass-wrapper">
-      <Glass :progress="progress" />
-    </div>
   </div>
 </template>
 
@@ -52,15 +62,24 @@ export default {
     gameStep: 'searching',
     grapesNum: null,
     eatenGrapes: [],
-    eatingProgress: 0
+    eatingProgress: 0,
+    grapesToEat: 0
   }),
   mounted () {
     this.grapesNum = this.$refs.grapes.grapes.length
     this.targetRandomGrape()
+    this.updateHintHeight()
   },
   computed: {
     progress () {
       return (this.eatingProgress / this.grapesNum)
+    }
+  },
+  watch: {
+    gameStep () {
+      window.requestAnimationFrame(() => {
+        this.updateHintHeight()
+      })
     }
   },
   methods: {
@@ -69,24 +88,31 @@ export default {
     },
     targetRandomGrape () {
       this.targetGrape = this.$refs.grapes.randomGrape(true).key
+      console.log('target grape: ' + this.targetGrape)
     },
     eatGrape (key) {
       this.eatenGrapes.push(key)
+      this.eatingProgress++
       if (key === this.targetGrape) {
-        this.gameStep = 'piou'
-        this.targetRandomGrape()
-        this.eatingProgress = 0
-      } else {
-        this.eatingProgress++
+        if (this.eatenGrapes.length === this.grapesNum) {
+          this.eatingProgress = this.grapesNum
+          this.gameStep = 'end'
+        } else {
+          this.grapesToEat = this.eatingProgress
+          this.gameStep = 'piou'
+        }
       }
     },
     startOver () {
       this.$emit('start-over')
     },
     continueGame () {
-      this.invertSearchingPlayer()
-      this.$refs.grapes.clearSelection()
-      this.gameStep = 'selectGrape'
+      this.targetRandomGrape()
+      this.gameStep = 'searching'
+      this.eatingProgress = 0
+    },
+    updateHintHeight () {
+      this.hintHeight = this.$refs.hintWrapper.clientHeight
     }
   }
 }
@@ -94,104 +120,125 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import "@/scss/globals";
+  @import "@/scss/globals";
 
-.slide-enter-active, .fade-leave-active {
-  transition: all .5s $transition-easing;
-}
-.slide-enter  /* .fade-leave-active below version 2.1.8 */ {
-  transform: translate3D(100%, 0 ,0);
-}
-.slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translate3D(-100%, 0 ,0);
-}
+  .slide-enter-active, .fade-leave-active {
+    transition: all .5s $transition-easing;
+  }
+  .slide-enter  /* .fade-leave-active below version 2.1.8 */ {
+    transform: translate3D(100%, 0 ,0);
+  }
+  .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translate3D(-100%, 0 ,0);
+  }
 
-#game {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-}
+  #game {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
 
-.grapes-wrapper {
-  width: 90%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px auto;
-}
+  .grapes-wrapper {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
+  }
 
-.piou-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparentize($color: $theme-color1, $amount: .2);
-  display: flex;
-  opacity: 0;
-  transition: all .4s ease;
-  pointer-events: none;
-
-  div {
-    color: #fff;
-    font-weight: 800;
-    font-size: 5em;
+  .piou-wrapper {
+    position: fixed;
     width: 100%;
-    margin-top: 40%;
-    text-align: center;
-    transition: all .4s $transition-easing;
-    /*transform: translate3d(100%, 0, 0);*/
-  }
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparentize($color: $theme-color1, $amount: .2);
+    display: flex;
+    opacity: 0;
+    transition: all .4s ease;
+    pointer-events: none;
 
-  &.visible {
-    opacity: 1;
     div {
-      transform: translate3d(0, 0, 0);
+      color: #fff;
+      font-weight: 800;
+      font-size: 5em;
+      width: 100%;
+      margin-top: 30%;
+      text-align: center;
+      transition: all .4s $transition-easing;
+      /*transform: translate3d(100%, 0, 0);*/
     }
-  }
-}
 
-#hint-wrapper {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-
-  .hint {
-    p {
-      font-size: 1.1em;
-      margin: 30px
-    }
-    .buttons {
-      margin: 10px 30px 20px;
-      display: flex;
-      justify-content: flex-end;
-      button {
-        margin-left: 10px
+    &.visible {
+      opacity: 1;
+      pointer-events: all;
+      div {
+        transform: translate3d(0, 0, 0);
       }
     }
   }
-}
-.scores-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transition: all .3s;
-  .score {
-    margin: 10px;
-    text-align: center;
-    font-size: 1.3em;
+
+  .hint-leave, .hint-leave-active, .hint-leave-to {
+    transition-delay: .3s;
   }
-  &.white {
-    color: #fff;
+
+  .hint-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: all .3s $transition-easing;
+    transform: translateY(100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
+    &.visible {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(0);
+    }
+
+    .hint {
+      p {
+        font-size: 1.1em;
+        margin: 30px;
+      }
+      .buttons {
+        margin: 10px 30px 20px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          margin-left: 10px
+        }
+      }
+    }
   }
-}
+  .scores-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: all .3s;
+    .score {
+      margin: 10px;
+      text-align: center;
+      font-size: 1.3em;
+    }
+    &.white {
+      color: #fff;
+    }
+  }
+  .glass-wrapper {
+    position: absolute;
+    left: 5px;
+    bottom: 100%;
+    width: 30%;
+    max-width: 200px;
+    opacity: .8;
+    pointer-events: none;
+    transition: all .3s $transition-easing;
+  }
 </style>
