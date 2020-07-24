@@ -49,11 +49,12 @@ export default {
     height: 100%;
     font-family: "Mark Pro", sans-serif;
     color: $theme-black;
+    background-color: $background;
   }
 
   .input-container {
     position: relative;
-    margin: 0 60px 40px;
+    margin: 0 0 40px;
 
     input {
       outline: none;
