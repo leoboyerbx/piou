@@ -75,8 +75,14 @@ export default {
     progress () {
       return (this.eatingProgress / this.grapesNum)
     },
+    difficulty () {
+      return this.gameSettings.difficulty || 1
+    },
+    displayEatingProgress () {
+      return Math.ceil(this.eatingProgress * this.difficulty)
+    },
     annotation () {
-      return this.eatingProgress === this.grapesNum ? ':o' : this.eatingProgress.toString()
+      return this.eatingProgress === this.grapesNum ? ':o' : this.displayEatingProgress.toString()
     }
   },
   watch: {
@@ -102,7 +108,7 @@ export default {
           this.eatingProgress = this.grapesNum
           this.gameStep = 'end'
         } else {
-          this.grapesToEat = this.eatingProgress
+          this.grapesToEat = this.displayEatingProgress
           this.gameStep = 'piou'
         }
       }

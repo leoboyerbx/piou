@@ -13,7 +13,13 @@
               min: '4',
               initial: 6,
               required: true
-            }
+            },
+            {
+              name: 'difficulty',
+              type: 'select',
+              label: 'Difficulty',
+              required: true
+            },
           ]"
       />
     </Content>

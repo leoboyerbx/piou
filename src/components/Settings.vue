@@ -11,7 +11,6 @@
                 <label :for="field.name">{{ field.label }}</label>
                 <div class="bar"></div>
               </div>
-
               <p v-else-if="field.type === 'vs'" class="vs">VS</p>
               <p v-else-if="field.type === 'p'" :class="field.class">VS</p>
             </div>
@@ -25,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Settings',
   props: {
