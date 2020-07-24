@@ -11,7 +11,7 @@
                 <label :for="field.name">{{ field.label }}</label>
                 <div class="bar"></div>
               </div>
-              <vue-select v-else-if="field.type === 'select'" :options="['hey', 'toto']" class="settings-field"></vue-select>
+              <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint"></vue-select>
               <p v-else-if="field.type === 'vs'" class="vs">VS</p>
               <p v-else-if="field.type === 'p'" :class="field.class">VS</p>
             </div>

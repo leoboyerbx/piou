@@ -1,15 +1,22 @@
 <template>
-  <div class="vue-select" @click="toggleDropdown"><span class="selected-option">{{ placeholder }}
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
-      </svg></span>
-    <transition name="slide">
-      <div class="dropdown-options-container" v-show="showDropdown">
-        <div class="dropdown-options" v-for="option in options" :class="{'selected': option === selected}" :key="option">
-          <div class="dropdown-options--cell" @click="selectOption(option)"><span class="option-text">{{ option }}</span></div>
+  <div style="width: 100%;">
+    <div class="label">
+      {{ label }}
+    </div>
+    <div class="vue-select" @click="toggleDropdown"><span class="selected-option">{{ renderedPlaceholder }}
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
+        </svg></span>
+      <transition name="slide">
+        <div class="dropdown-options-container" v-show="showDropdown">
+          <div class="dropdown-options" v-for="option in options" :class="{'selected': option === selected }" :key="option.value">
+            <div class="dropdown-options--cell" @click="selectOption(option)"><span class="option-text">{{ option.name }}</span></div>
+          </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+      <input :value="selected.value" type="text" required class="select-locker" />
+    </div>
+    <div class="hint">{{ selected.hint }}</div>
   </div>
 </template>
 
@@ -24,12 +31,21 @@ export default {
     placeholder: {
       default: 'Select an option',
       type: String
+    },
+    defaultHint: {
+      type: String
+    },
+    label: {
+      type: String
     }
   },
   data () {
     return {
-      selected: 'select an option',
-      showDropdown: false
+      selected: {
+        hint: this.defaultHint
+      },
+      showDropdown: false,
+      renderedPlaceholder: this.placeholder
     }
   },
   methods: {
@@ -38,9 +54,9 @@ export default {
     },
     selectOption (option) {
       this.selected = option
-      this.placeholder = option
+      this.renderedPlaceholder = option.name
       // inform parent (the form) of a selection so the model can be updated.
-      this.$emit('interface', this.selected)
+      this.$emit('update', this.selected.value)
     }
   }
 }
@@ -65,17 +81,33 @@ export default {
     text-overflow: ellipsis;
   }
 
+  .label {
+    font-size: .9em;
+    color: #9d9d9d;
+    margin-top: 20px;
+  }
+
+  .hint {
+    font-size: .8em;
+    color: #9d9d9d;
+    font-style: italic;
+    border-left: solid #9d9d9d 1px;
+    padding-left: 10px;
+    margin: 0 10px 20px 20px;
+  }
+
   .vue-select {
     color: $vue-navy;
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
-    margin: 30px auto;
+    margin: 10px auto 10px;
     cursor: pointer;
     user-select: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
     border: none;
     transition: all .4s $transition-easing;
+    position: relative;
 
     .selected-option {
       @include ellipsis();
@@ -101,6 +133,13 @@ export default {
           fill: darken($vue-teal, 15%);
         }
       }
+    }
+    .select-locker {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      z-index: -1;
     }
   }
 

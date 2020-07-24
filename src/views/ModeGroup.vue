@@ -18,7 +18,31 @@
               name: 'difficulty',
               type: 'select',
               label: 'Difficulty',
-              required: true
+              placeholder: 'Select difficulty',
+              defaultHint: 'Difficulty affects the number of sips by grape',
+              required: true,
+              options: [
+                {
+                  value: '0.25',
+                  name: 'Easy',
+                  hint: '4 grapes = 1 sip'
+                },
+                {
+                  value: '0.5',
+                  name: 'Normal',
+                  hint: '2 grapes = 1 sip'
+                },
+                {
+                  value: '1',
+                  name: 'Difficult',
+                  hint: '1 grape = 1 sip'
+                },
+                {
+                  value: '2',
+                  name: 'Hardcore',
+                  hint: '1 grape = 2 sips !'
+                }
+              ]
             },
           ]"
       />
