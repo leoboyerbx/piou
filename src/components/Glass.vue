@@ -48,8 +48,6 @@
 </template>
 
 <script>
-import { gsap, CSSPlugin } from 'gsap/all'
-gsap.registerPlugin(CSSPlugin)
 export default {
   name: 'Glass',
   props: {
@@ -67,11 +65,6 @@ export default {
     wineY () {
       const val = (340 - (this.progress * 340)).toFixed(5)
       return val === 'NaN' ? 0 : val
-    }
-  },
-  watch: {
-    progress: function (newValue) {
-      gsap.to(this.$data, { duration: 0.5 })
     }
   }
 }
