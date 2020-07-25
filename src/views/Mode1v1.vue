@@ -8,7 +8,7 @@
               name: 'player1',
               type: 'input',
               inputType: 'text',
-              label: 'Player 1',
+              label: $c($tc('ui.player')) + ' 1',
               initial: '',
               required: true
             },
@@ -20,7 +20,7 @@
               name: 'player2',
               type: 'input',
               inputType: 'text',
-              label: 'Player 2',
+              label: $c($tc('ui.player')) + ' 2',
               initial: '',
               required: true
             },
@@ -28,7 +28,7 @@
               name: 'linesNum',
               type: 'input',
               inputType: 'number',
-              label: 'Number of lines',
+              label: $t('ui.linesNum'),
               min: '4',
               initial: 6,
               required: true

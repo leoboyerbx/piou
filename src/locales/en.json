@@ -2,19 +2,51 @@
 	"dic": {
 		"grape": "0 grapes | one grape | {n} grapes"
 	},
+	"game": {
+		"difficulty": {
+			"difficult": {
+				"hint": "1 grape = 1 sip",
+				"name": "Difficult"
+			},
+			"easy": {
+				"hint": "4 grapes = 1 sip",
+				"name": "Easy"
+			},
+			"hardcore": {
+				"hint": "1 grape = 2 sips !",
+				"name": "Hardcore"
+			},
+			"hint": "Difficulty affects the number of sips by grape",
+			"label": "Difficulty",
+			"normal": {
+				"hint": "2 grapes = 1 sip",
+				"name": "Normal"
+			},
+			"placeholder": "Select difficulty"
+		},
+		"group": {
+			"hints": {
+				"drinkSome": "You drink {n} {sips} ;)"
+			}
+		}
+	},
 	"piou": "piou !",
 	"slogan": "The grape game.",
 	"ui": {
 		"back": "Back",
+		"continue": "Continue",
 		"gameMode": {
 			"group": "Group",
 			"versus": "2 players 1v1"
 		},
+		"gameSettings": "Game settings",
+		"linesNum": "Number of lines",
 		"newGame": "New game",
 		"player": "player | players",
 		"selectGameMode": "Select game mode",
 		"selectOption": "Select an option",
 		"start": "Start",
+		"startOver": "Start Over",
 		"vs": "VS"
 	}
 }

@@ -18,10 +18,10 @@
     <div class="hint-wrapper" ref="hintWrapper" :class="{ visible: ['piou', 'end'].includes(gameStep) }">
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'piou'">
-          <p><strong>Piou !</strong> You <i>eat <strong>{{ grapesToEat }}</strong> grapes</i> ;)</p>
+          <p><strong>{{ $c($t('piou')) }}</strong>{{ $tc('game.group.hints.drinkSome') }}</p>
           <div class="buttons">
-            <button class="btn btn-light" @click="startOver">Start over</button>
-            <button class="btn btn-theme" @click="continueGame">Continue</button>
+            <button class="btn btn-light" @click="startOver">{{ $t('ui.startOver') }}</button>
+            <button class="btn btn-theme" @click="continueGame">{{ $t('ui.continue') }}</button>
           </div>
         </div>
       </transition>
@@ -29,7 +29,7 @@
         <div class="hint" v-show="gameStep === 'end'">
           <p><strong>Piou !</strong> You <i>eat <strong>all the grapes</strong> </i> ;)</p>
           <div class="buttons">
-            <button class="btn btn-theme" @click="startOver">Start over</button>
+            <button class="btn btn-theme" @click="startOver">{{ $t('ui.startOver') }}</button>
           </div>
         </div>
       </transition>
