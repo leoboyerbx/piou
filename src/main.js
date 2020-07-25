@@ -7,6 +7,12 @@ import i18n from './i18n'
 
 Vue.config.productionTip = false
 
+Vue.mixin({
+  methods: {
+    $c: str => str.charAt(0).toUpperCase() + str.slice(1) //  capitalize first letter
+  }
+})
+
 new Vue({
   store,
   router,

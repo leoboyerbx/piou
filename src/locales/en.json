@@ -1,3 +1,20 @@
 {
-  "message": "hello i18n !!"
+	"dic": {
+		"grape": "0 grapes | one grape | {n} grapes"
+	},
+	"piou": "piou !",
+	"slogan": "The grape game.",
+	"ui": {
+		"back": "Back",
+		"gameMode": {
+			"group": "Group",
+			"versus": "2 players 1v1"
+		},
+		"newGame": "New game",
+		"player": "player | players",
+		"selectGameMode": "Select game mode",
+		"selectOption": "Select an option",
+		"start": "Start",
+		"vs": "VS"
+	}
 }

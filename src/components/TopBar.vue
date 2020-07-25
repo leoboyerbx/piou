@@ -6,11 +6,11 @@
     <transition name="fade">
       <div v-show="!folded" class="start">
         <span>
-          <h1>Piou !</h1>
-          <p>The grape game.</p>
+          <h1>{{ $c($t('piou')) }}</h1>
+          <p>{{ $t('slogan') }}</p>
         </span>
         <router-link to="/select-game">
-          <button @click="newGame" class="btn btn-theme">New game</button>
+          <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
         </router-link>
       </div>
     </transition>

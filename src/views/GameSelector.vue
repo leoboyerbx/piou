@@ -1,10 +1,12 @@
 <template>
   <div>
     <Content class="game-selector">
-      <h1>Select game mode</h1>
+      <h1>{{ $t('ui.selectGameMode') }}</h1>
       <div class="links">
-        <router-link to="/1v1" class="btn btn-theme list-link"><VersusIcon class="icon" width="40" height="40" />2 players 1v1</router-link>
-        <router-link to="/group" class="btn btn-theme list-link"><GroupIcon class="icon" width="40" height="40" />Group</router-link>
+        <router-link to="/1v1" class="btn btn-theme list-link"><VersusIcon class="icon" width="40" height="40" />
+          {{ $t('ui.gameMode.versus') }}</router-link>
+        <router-link to="/group" class="btn btn-theme list-link"><GroupIcon class="icon" width="40" height="40" />
+          {{ $t('ui.gameMode.group') }}</router-link>
       </div>
     </Content>
   </div>
