@@ -9,16 +9,16 @@
     </div>
     <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'end'}">
       <transition name="slide">
-        <div v-show="gameStep === 'piou'">piou !</div>
+        <div v-show="gameStep === 'piou'">{{ $t('piou') }}</div>
       </transition>
       <transition name="slide">
-        <div v-show="gameStep === 'end'">PIOUU !</div>
+        <div v-show="gameStep === 'end'">{{ $t('game.bigPiou') }}</div>
       </transition>
     </div>
     <div class="hint-wrapper" ref="hintWrapper" :class="{ visible: ['piou', 'end'].includes(gameStep) }">
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'piou'">
-          <p><strong>{{ $c($t('piou')) }}</strong>{{ $tc('game.group.hints.drinkSome') }}</p>
+          <p><strong>{{ $c($t('piou')) }}</strong> {{ $tc('game.group.hints.drinkSome', grapesToEat, { sips: $tc('dic.sip', grapesToEat) }) }} ;)</p>
           <div class="buttons">
             <button class="btn btn-light" @click="startOver">{{ $t('ui.startOver') }}</button>
             <button class="btn btn-theme" @click="continueGame">{{ $t('ui.continue') }}</button>
@@ -27,7 +27,7 @@
       </transition>
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'end'">
-          <p><strong>Piou !</strong> You <i>eat <strong>all the grapes</strong> </i> ;)</p>
+          <p><strong>{{ $c($t('piou')) }}</strong> {{ $t('game.group.hints.downInOne') }} ;)</p>
           <div class="buttons">
             <button class="btn btn-theme" @click="startOver">{{ $t('ui.startOver') }}</button>
           </div>
