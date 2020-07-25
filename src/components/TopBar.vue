@@ -104,8 +104,9 @@ export default {
   .logo {
     position: absolute;
     height: 60%;
-    width: 100%;
+    width: 20%;
     top: 20%;
+    left: 40%;
     transition: all .5s $transition-easing;
     img {
       width: 100%;
@@ -117,6 +118,7 @@ export default {
       top: 20%;
       height: 30%;
       width: 100%;
+      left: 0;
 
     }
   }
