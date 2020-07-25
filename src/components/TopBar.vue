@@ -1,8 +1,5 @@
 <template>
   <div id="topbar" :class="{unfolded: !folded, hidden: hidden}">
-    <div class="folded-items">
-      <MenuButton id="menubutton" />
-    </div>
     <transition name="fade">
       <div v-show="!folded" class="start">
         <span>
@@ -23,13 +20,9 @@
 </template>
 
 <script>
-import MenuButton from './MenuButton'
 
 export default {
   name: 'TopBar',
-  components: {
-    MenuButton
-  },
   props: {
     folded: {
       type: Boolean,
