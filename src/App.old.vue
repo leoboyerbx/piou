@@ -7,30 +7,30 @@
 </template>
 
 <script>
-  import TopBar from './components/TopBar.vue'
+import TopBar from './components/TopBar.vue'
 
-  export default {
-    name: 'App',
-    components: {
-      TopBar
-    },
-    data () {
-      return {
-        linesNum: '4',
-        gameSettings: {}
-      }
-    },
-    computed: {
-      linesInt () {
-        return parseInt(this.linesNum)
-      },
-      topBar () {
-        return this.$store.state.topBar
-      }
-    },
-    methods: {
+export default {
+  name: 'App',
+  components: {
+    TopBar
+  },
+  data () {
+    return {
+      linesNum: '4',
+      gameSettings: {}
     }
+  },
+  computed: {
+    linesInt () {
+      return parseInt(this.linesNum)
+    },
+    topBar () {
+      return this.$store.state.topBar
+    }
+  },
+  methods: {
   }
+}
 </script>
 
 <style lang="scss">
