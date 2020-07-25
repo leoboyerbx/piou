@@ -27,7 +27,7 @@ export default {
           name: 'Français'
         }
       },
-      currentLanguage: 'en'
+      currentLanguage: this.$i18n.locale.substring(0, 2)
     }
   },
   computed: {
