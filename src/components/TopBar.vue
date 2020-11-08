@@ -1,16 +1,13 @@
 <template>
   <div id="topbar" :class="{unfolded: !folded, hidden: hidden}">
-    <div class="folded-items">
-      <MenuButton id="menubutton" />
-    </div>
     <transition name="fade">
       <div v-show="!folded" class="start">
         <span>
-          <h1>Piou !</h1>
-          <p>The grape game.</p>
+          <h1>{{ $c($t('piou')) }}</h1>
+          <p>{{ $t('slogan') }}</p>
         </span>
         <router-link to="/select-game">
-          <button @click="newGame" class="btn btn-theme">New game</button>
+          <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
         </router-link>
       </div>
     </transition>
@@ -23,13 +20,9 @@
 </template>
 
 <script>
-import MenuButton from './MenuButton'
 
 export default {
   name: 'TopBar',
-  components: {
-    MenuButton
-  },
   props: {
     folded: {
       type: Boolean,
@@ -104,8 +97,9 @@ export default {
   .logo {
     position: absolute;
     height: 60%;
-    width: 100%;
+    width: 20%;
     top: 20%;
+    left: 40%;
     transition: all .5s $transition-easing;
     img {
       width: 100%;
@@ -117,6 +111,7 @@ export default {
       top: 20%;
       height: 30%;
       width: 100%;
+      left: 0;
 
     }
   }

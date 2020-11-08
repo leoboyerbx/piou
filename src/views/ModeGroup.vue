@@ -3,13 +3,13 @@
     <Content v-show="currentStep ==='settings'" class="settings-wrapper">
       <Settings
         @start-game="startGame"
-        title="Game settings"
+        :title="$t('ui.gameSettings')"
         :fields="[
             {
               name: 'linesNum',
               type: 'input',
               inputType: 'number',
-              label: 'Number of lines',
+              label: $t('ui.linesNum'),
               min: '4',
               initial: 6,
               required: true
@@ -17,30 +17,30 @@
             {
               name: 'difficulty',
               type: 'select',
-              label: 'Difficulty',
-              placeholder: 'Select difficulty',
-              defaultHint: 'Difficulty affects the number of sips by grape',
+              label: $t('game.difficulty.label'),
+              placeholder: $t('game.difficulty.placeholder'),
+              defaultHint: $t('game.difficulty.hint'),
               required: true,
               options: [
                 {
                   value: '0.25',
-                  name: 'Easy',
-                  hint: '4 grapes = 1 sip'
+                  name: $t('game.difficulty.easy.name'),
+                  hint: $t('game.difficulty.easy.hint')
                 },
                 {
                   value: '0.5',
-                  name: 'Normal',
-                  hint: '2 grapes = 1 sip'
+                  name: $t('game.difficulty.normal.name'),
+                  hint: $t('game.difficulty.normal.hint')
                 },
                 {
                   value: '1',
-                  name: 'Difficult',
-                  hint: '1 grape = 1 sip'
+                  name: $t('game.difficulty.difficult.name'),
+                  hint: $t('game.difficulty.difficult.hint')
                 },
                 {
                   value: '2',
-                  name: 'Hardcore',
-                  hint: '1 grape = 2 sips !'
+                  name: $t('game.difficulty.hardcore.name'),
+                  hint: $t('game.difficulty.hardcore.hint')
                 }
               ]
             },

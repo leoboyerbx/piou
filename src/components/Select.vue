@@ -29,7 +29,9 @@ export default {
       type: Array
     },
     placeholder: {
-      default: 'Select an option',
+      default: function () {
+        return this.$t('ui.selectOption')
+      },
       type: String
     },
     defaultHint: {

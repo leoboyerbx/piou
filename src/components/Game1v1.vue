@@ -10,10 +10,10 @@
     </div>
     <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'victory'}">
         <transition name="slide">
-          <div v-show="gameStep === 'piou' || willLose">piou !</div>
+          <div v-show="gameStep === 'piou' || willLose">{{ $t('piou') }}</div>
         </transition>
         <transition name="slide">
-          <div v-show="gameStep === 'victory' && !willLose">victory !</div>
+          <div v-show="gameStep === 'victory' && !willLose">{{ $t('game.victory') }}</div>
         </transition>
     </div>
     <div id="hint-wrapper" ref="hintWrapper">

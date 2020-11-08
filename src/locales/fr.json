@@ -1,0 +1,57 @@
+{
+	"dic": {
+		"grape": "raisin | raisins",
+		"grapeWithNum": "0 raisins | un raisin | {n} raisins",
+		"sip": "gorgée | gorgées"
+	},
+	"game": {
+		"bigPiou": "PIOUUUU !",
+		"difficulty": {
+			"difficult": {
+				"hint": "1 raisin = 1 gorgée",
+				"name": "Difficile"
+			},
+			"easy": {
+				"hint": "4 raisins = 1 gorgée",
+				"name": "Facile"
+			},
+			"hardcore": {
+				"hint": "1 raisin = 2 gorgées !",
+				"name": "Hardcore"
+			},
+			"hint": "La difficulté affecte le nombre de gorgées par raisin",
+			"label": "Difficulté",
+			"normal": {
+				"hint": "2 raisins = 1 gorgée",
+				"name": "Normal"
+			},
+			"placeholder": "Sélectionner la difficulté"
+		},
+		"group": {
+			"hints": {
+				"downInOne": "Tu fais cul-sec !",
+				"drinkSome": "Tu bois {n} {sips} ;)"
+			}
+		},
+		"victory": "victoire !"
+	},
+	"piou": "piou !",
+	"slogan": "Le jeu du raisin.",
+	"ui": {
+		"back": "Retour",
+		"continue": "Continuer",
+		"gameMode": {
+			"group": "Groupe",
+			"versus": "2 joueurs 1v1"
+		},
+		"gameSettings": "Paramètres de jeu",
+		"linesNum": "Nombre de lignes",
+		"newGame": "Jouer",
+		"player": "joueur | joueurs",
+		"selectGameMode": "Sélectionner un mode de jeu",
+		"selectOption": "Choisir une option",
+		"start": "Démarrer",
+		"startOver": "Recommencer",
+		"vs": "VS"
+	}
+}

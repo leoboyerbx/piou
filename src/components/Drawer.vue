@@ -1,28 +1,34 @@
 <template>
-  <div class="drawer" :class="{ open }">
-    <div class="drawer-wrapper">
-
+  <div class="drawer">
+    <div class="drawer-wrapper" :class="{ open }">
+      <div class="language-switch">
+        <LanguageSwitcher @update="updateLang($event)"></LanguageSwitcher>
+      </div>
     </div>
+    <MenuButton id="menubutton" @click="open = !open" />
   </div>
 </template>
 
 <script>
+import LanguageSwitcher from './LanguageSwitcher'
+import MenuButton from './MenuButton'
 export default {
   name: 'Drawer',
   components: {
+    MenuButton,
+    LanguageSwitcher
   },
   props: {
-    open: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
   },
   data: () => ({
+    open: false
   }),
   computed: {
   },
   methods: {
+    updateLang (lang) {
+      this.$i18n.locale = lang
+    }
   }
 
 }
@@ -32,12 +38,36 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/globals';
 
-  .drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 200;
+#menubutton {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+}
+
+.drawer-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 200;
+  background-color: #fff;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: all .3s $transition-easing;
+
+  &.open {
+    transform: translateX(0);
+    pointer-events: all;
   }
+
+  .language-switch {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    top: 100px;
+  }
+}
+
 </style>

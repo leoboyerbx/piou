@@ -11,13 +11,16 @@
                 <label :for="field.name">{{ field.label }}</label>
                 <div class="bar"></div>
               </div>
+
               <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint"></vue-select>
-              <p v-else-if="field.type === 'vs'" class="vs">VS</p>
-              <p v-else-if="field.type === 'p'" :class="field.class">VS</p>
+
+              <p v-else-if="field.type === 'vs'" class="vs">{{ $t('ui.vs') }}</p>
+
+              <p v-else-if="field.type === 'p'" :class="field.class">{{ field.text }}</p>
             </div>
             <div class="buttons">
-              <router-link to="/select-game" class="btn btn-light">Back</router-link>
-              <button class="btn btn-theme" type="submit">Start</button>
+              <router-link to="/select-game" class="btn btn-light">{{ $t('ui.back') }}</router-link>
+              <button class="btn btn-theme" type="submit">{{ $t('ui.start') }}</button>
             </div>
           </form>
         </div>
@@ -88,7 +91,7 @@ export default {
       font-style: italic;
       text-transform: uppercase;
       font-size: 1.5em;
-      margin: 0;
+      margin: 0 0 20px;
       color: $theme-color1;
     }
     h1 {
