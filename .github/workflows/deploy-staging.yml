@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ staging ]
+  pull_request:
+    branches: [ staging ]
+
+jobs:
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v1
+#        with:
+#          node-version: 12
+#      - run: npm ci
+#      - run: npm run test-ci
+  build:
+#    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: sftp://${{ secrets.SFTP_HOST }}:${{ secrets.SFTP_PORT }}/
+          ftp-username: ${{ secrets.SFTP_USERNAME }}
+          ftp-password: ${{ secrets.SFTP_PASSWORD }}
+          known-hosts: ${{ secrets.SFTP_KNOWN_HOST }}
+          git-ftp-args: --dry-run --remote-root /home/leo/sites/piou-dev
+          local-dir: ./dist/
