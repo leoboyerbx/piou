@@ -46,7 +46,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -avzrn --delete
+          switches: -avzr --delete
           path: dist/
           remote_path: /home/leo/sites/piou-dev
           remote_host: ${{ secrets.SFTP_HOST }}
