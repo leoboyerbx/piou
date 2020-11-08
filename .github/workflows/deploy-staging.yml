@@ -43,12 +43,14 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: FTP Upload
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
         with:
-          ftp-server: sftp://${{ secrets.SFTP_HOST }}:${{ secrets.SFTP_PORT }}/home/leo/sites/piou-dev/
-          ftp-username: ${{ secrets.SFTP_USERNAME }}
-          ftp-password: ${{ secrets.SFTP_PASSWORD }}
-#          known-hosts: ${{ secrets.SFTP_KNOWN_HOST }}
-          git-ftp-args: --dry-run --insecure
-          local-dir: ./dist/
+          switches: -avzrn --delete
+          path: dist/
+          remote_path: /home/leo/sites/piou-dev
+          remote_host: ${{ secrets.SFTP_HOST }}
+          remote_port: ${{ secrets.SFTP_PORT }}
+          remote_user: ${{ secrets.SFTP_USERNAME }}
+          remote_key: ${{ secrets.SFTP_PRIVATE_KEY }}
+
