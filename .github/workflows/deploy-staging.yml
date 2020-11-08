@@ -46,9 +46,9 @@ jobs:
       - name: FTP Upload
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: sftp://${{ secrets.SFTP_HOST }}:${{ secrets.SFTP_PORT }}/home/leo/sites/piou-dev
+          ftp-server: sftp://${{ secrets.SFTP_HOST }}:${{ secrets.SFTP_PORT }}/home/leo/sites/piou-dev/
           ftp-username: ${{ secrets.SFTP_USERNAME }}
           ftp-password: ${{ secrets.SFTP_PASSWORD }}
-          known-hosts: ${{ secrets.SFTP_KNOWN_HOST }}
-          git-ftp-args: --dry-run
+#          known-hosts: ${{ secrets.SFTP_KNOWN_HOST }}
+          git-ftp-args: --dry-run --insecure
           local-dir: ./dist/
