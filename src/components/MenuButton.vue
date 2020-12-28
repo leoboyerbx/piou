@@ -43,7 +43,21 @@ export default {
             height: 4px;
             background: $theme-grey-dark;
             border-radius: 10px;
+            transition: all .25s;
         }
+    }
+    &.open {
+      .h-bar:first-child {
+        transform: translateY(14px) rotate(225deg) scale(1.3, 1.1);
+        transition: transform .25s .3s;
+      }
+      .h-bar:nth-child(2) {
+        transform: scale(0, 1);
+      }
+      .h-bar:last-child {
+        transform: translateY(-12px) rotate(-45deg) scale(1.3, 1.1);
+        transition: transform .25s .3s;
+      }
     }
 }
 </style>

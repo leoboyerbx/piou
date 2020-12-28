@@ -6,7 +6,7 @@
       </div>
       <div class="version">v0.2.0</div>
     </div>
-    <MenuButton id="menubutton" @click="open = !open" />
+    <MenuButton class="menubutton" :class="{ open }" @click="open = !open" />
   </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 <style scoped lang="scss">
 @import '@/scss/globals';
 
-#menubutton {
+.menubutton {
   position: fixed;
   top: 15px;
   left: 15px;
