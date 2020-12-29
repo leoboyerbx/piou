@@ -4,7 +4,7 @@
       <div class="language-switch">
         <LanguageSwitcher @update="updateLang($event)"></LanguageSwitcher>
       </div>
-      <div class="version">v0.2.0</div>
+      <div class="version">v0.2.1</div>
     </div>
     <MenuButton class="menubutton" :class="{ open }" @click="open = !open" />
   </div>
@@ -67,9 +67,10 @@ export default {
     position: absolute;
     left: 5%;
     width: 90%;
-    top: 100px;
+    bottom: 0;
   }
   .version {
+    display: none;
     position: absolute;
     bottom: 5px;
     width: 100%;

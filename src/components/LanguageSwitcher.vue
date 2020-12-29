@@ -1,32 +1,37 @@
 <template>
   <div class="choose-language">
     <form class="form">
-      <div class="inputGroup" v-for="[key, language] of Object.entries(availableLanguages)" :key="key">
-        <input :id="'radio_' + key" :value="key" v-model="currentLanguage" name="language" type="radio"/>
-        <label :for="'radio_' + key">{{ language.name }}
-<!--          <img v-if="language.flag" :src="language.flag" :alt="key.toUpperCase()" class="flag">-->
-        </label>
-      </div>
+<!--      <div class="inputGroup" v-for="[key, language] of Object.entries(availableLanguages)" :key="key">-->
+<!--        <input :id="'radio_' + key" :value="key" v-model="currentLanguage" name="language" type="radio"/>-->
+<!--        <label :for="'radio_' + key">{{ language.name }}-->
+<!--&lt;!&ndash;          <img v-if="language.flag" :src="language.flag" :alt="key.toUpperCase()" class="flag">&ndash;&gt;-->
+<!--        </label>-->
+<!--      </div>-->
+      <VueSelect direction="up" :options="availableLanguages" v-model="currentLanguage" @update="currentLanguage = $event" class="language-select" placeholder="Langue"></VueSelect>
     </form>
   </div>
 </template>
 
 <script>
+import VueSelect from '@/components/Select'
 export default {
   name: 'LanguageSwitcher',
+  components: { VueSelect },
   props: {
 
   },
   data () {
     return {
-      availableLanguages: {
-        en: {
+      availableLanguages: [
+        {
+          value: 'en',
           name: 'English'
         },
-        fr: {
+        {
+          value: 'fr',
           name: 'Français'
         }
-      },
+      ],
       currentLanguage: this.$i18n.locale.substring(0, 2)
     }
   },
@@ -34,8 +39,11 @@ export default {
   },
   watch: {
     currentLanguage (newVal) {
+      console.log(newVal)
       this.$emit('update', newVal)
     }
+  },
+  methods: {
   }
 }
 </script>
