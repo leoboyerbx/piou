@@ -1,6 +1,18 @@
 <template>
   <div class="drawer">
     <div class="drawer-wrapper" :class="{ open }">
+      <div class="logo">
+        <router-link to="/" @click.native="open = false">
+          <img src="../assets/logo.svg" alt="logo"> Piou
+        </router-link>
+      </div>
+      <nav class="global-nav">
+        <ul>
+          <li>
+            <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" /> Accueil</router-link>
+          </li>
+        </ul>
+      </nav>
       <div class="language-switch">
         <LanguageSwitcher @update="updateLang($event)"></LanguageSwitcher>
       </div>
@@ -13,11 +25,14 @@
 <script>
 import LanguageSwitcher from './LanguageSwitcher'
 import MenuButton from './MenuButton'
+import HomeIcon from '@/icons/HomeIcon'
+
 export default {
   name: 'Drawer',
   components: {
     MenuButton,
-    LanguageSwitcher
+    LanguageSwitcher,
+    HomeIcon
   },
   props: {
   },
@@ -63,6 +78,29 @@ export default {
     pointer-events: all;
   }
 
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: $theme-color3;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 30px;
+        margin-right: 5px;
+      }
+    }
+  }
+
   .language-switch {
     position: absolute;
     left: 5%;
@@ -77,6 +115,36 @@ export default {
     font-size: .6em;
     color: #aaa;
     text-align: center;
+  }
+
+  .global-nav {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    padding: 30px;
+    font-size: 1.5em;
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+      li {
+        a {
+        text-decoration: none;
+        color: $theme-grey-dark;
+        font-weight: 500;
+
+        display: flex;
+        align-items: center;
+        width: auto;
+
+        .icon {
+          margin-right: 10px;
+          //color: $theme-color1;
+        }
+        }
+      }
+    }
   }
 }
 

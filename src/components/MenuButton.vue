@@ -28,7 +28,7 @@ export default {
     position: relative;
     width: 40px;
     height: 30px;
-  transform: scale(.8);
+    transform: scale(.8);
 
     .menu-button-icon {
         position: absolute;

@@ -112,7 +112,6 @@ export default {
       height: 30%;
       width: 100%;
       left: 0;
-
     }
   }
   .start {
