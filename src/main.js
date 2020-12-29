@@ -8,7 +8,9 @@ import Vue2TouchEvents from 'vue2-touch-events'
 
 Vue.config.productionTip = false
 
-Vue.use(Vue2TouchEvents)
+Vue.use(Vue2TouchEvents, {
+  disableClick: true
+})
 Vue.mixin({
   methods: {
     $c: str => str.charAt(0).toUpperCase() + str.slice(1) //  capitalize first letter

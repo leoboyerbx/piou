@@ -17,6 +17,11 @@
           <p class="description">Eius facilis fugiat id, magni molestias natus nobis nostrum pariatur perspiciatis quam repudiandae sequi unde vitae.</p>
         </template>
       </Step>
+      <Step>
+        <template v-slot:description>
+          <p class="description">Eius facilis fugiat id, magni molestias natus nobis nostrum pariatur perspiciatis quam repudiandae sequi unde vitae.</p>
+        </template>
+      </Step>
     </Slider>
   </div>
 </template>
@@ -36,7 +41,7 @@ export default {
 
 <style scoped lang="scss">
 .rules {
-  position: absolute;
+  position: fixed;
   top: 60px;
   left: 0px;
   bottom: 0;
@@ -49,6 +54,9 @@ export default {
   height: 150px;
   &.red {
     background-color: #ff6633;
+  }
+  &.green {
+    background-color: #33ffcc;
   }
 }
 .description {
