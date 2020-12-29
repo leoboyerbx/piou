@@ -9,22 +9,22 @@
       <nav class="global-nav">
         <ul>
           <li>
-            <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" /> Accueil</router-link>
+            <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" />Accueil</router-link>
           </li>
         </ul>
       </nav>
       <div class="language-switch">
         <LanguageSwitcher @update="updateLang($event)"></LanguageSwitcher>
       </div>
-      <div class="version">v0.2.1</div>
+<!--      <div class="version">v0.2.1</div>-->
     </div>
     <MenuButton class="menubutton" :class="{ open }" @click="open = !open" />
   </div>
 </template>
 
 <script>
-import LanguageSwitcher from './LanguageSwitcher'
-import MenuButton from './MenuButton'
+import LanguageSwitcher from './elements/LanguageSwitcher'
+import MenuButton from './elements/MenuButton'
 import HomeIcon from '@/icons/HomeIcon'
 
 export default {

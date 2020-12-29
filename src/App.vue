@@ -53,6 +53,7 @@ export default {
     font-family: "Mark Pro", sans-serif;
     color: $theme-black;
     background-color: $background;
+    overflow: hidden;
   }
 
   .input-container {

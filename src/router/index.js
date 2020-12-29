@@ -5,6 +5,7 @@ import store from '../store'
 import Mode1v1 from '../views/Mode1v1'
 import GameSelector from '../views/GameSelector'
 import ModeGroup from '@/views/ModeGroup'
+import Rules from '@/views/Rules'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,15 @@ const routes = [
     component: Home,
     beforeEnter (to, from, next) {
       topBar('expanded')
+      next()
+    }
+  },
+  {
+    path: '/rules',
+    name: 'Piou !',
+    component: Rules,
+    beforeEnter (to, from, next) {
+      topBar('default')
       next()
     }
   },

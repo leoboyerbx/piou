@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import VueSelect from '@/components/Select'
+import VueSelect from '@/components/elements/Select'
 export default {
   name: 'LanguageSwitcher',
   components: { VueSelect },

@@ -44,7 +44,7 @@
 
 <script>
 import Grapes from '@/components/Grapes.vue'
-import Glass from '@/components/Glass'
+import Glass from '@/components/elements/Glass'
 
 export default {
   name: 'GameGroup',
