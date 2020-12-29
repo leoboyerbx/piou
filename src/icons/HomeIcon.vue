@@ -13,7 +13,7 @@ c0.6,0.5,1.4,0.4,1.9-0.2c0,0,0,0,0,0l2.8-3.4C64.2,32.9,64.1,32,63.5,31.6C63.5,31
 
 import IconBase from '@/icons/IconBase'
 export default {
-  name: 'HomeIcon>',
+  name: 'HomeIcon',
   components: {
     IconBase
   },

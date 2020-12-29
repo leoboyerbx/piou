@@ -1,6 +1,6 @@
 <template>
   <div class="drawer">
-    <div class="drawer-wrapper" :class="{ open }">
+    <div class="drawer-wrapper" :class="{ open }" v-touch:swipe.left="onSwipe">
       <div class="logo">
         <router-link to="/" @click.native="open = false">
           <img src="../assets/logo.svg" alt="logo"> Piou
@@ -44,6 +44,9 @@ export default {
   methods: {
     updateLang (lang) {
       this.$i18n.locale = lang
+    },
+    onSwipe (e) {
+      this.open = false
     }
   }
 
