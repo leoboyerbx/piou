@@ -7,7 +7,7 @@
           <DangerIcon class="danger-icon" width="50%" height="auto" />
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step1')"></p>
+          <div class="description"><p v-html="$t('gamerules.step1')"></p></div>
         </template>
       </Step>
 
@@ -16,7 +16,7 @@
           <img src="@/assets/img/step2.svg" alt="grape" class="img-step-2">
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step2')"></p>
+          <div class="description"><p v-html="$t('gamerules.step2')"></p></div>
         </template>
       </Step>
 
@@ -25,7 +25,7 @@
           <TrappedGrape class="img-step-3" />
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step3')"></p>
+          <div class="description"><p v-html="$t('gamerules.step3')"></p></div>
         </template>
       </Step>
 
@@ -34,40 +34,46 @@
           <EatGrape class="img-step-3" />
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step4')"></p>
+          <div class="description"><p v-html="$t('gamerules.step4')"></p></div>
         </template>
       </Step>
 
       <Step>
         <template v-slot:image>
-          <div class="placeholder red"></div>
+          <FillGlass />
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step5')"></p>
+          <div class="description"><p v-html="$t('gamerules.step5')"></p></div>
         </template>
       </Step>
 
       <Step>
         <template v-slot:image>
-          <div class="placeholder red"></div>
+          <h2 class="piou-text">
+            <span>P</span>
+            <span>i</span>
+            <span>o</span>
+            <span>u</span>
+            <span>!</span>
+          </h2>
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step6')"></p>
+          <div class="description"><p v-html="$t('gamerules.step6')"></p></div>
         </template>
       </Step>
 
       <Step>
         <template v-slot:image>
-          <div class="placeholder red"></div>
+          <img src="@/assets/img/restart.svg" alt="grape" class="img-step-2">
         </template>
         <template v-slot:description>
-          <p class="description" v-html="$t('gamerules.step7')"></p>
+          <div class="description"><p v-html="$t('gamerules.step7')"></p></div>
         </template>
       </Step>
 
       <Step>
-        <template v-slot:description>
-          <h2>{{ $t('gamerules.step8') }}</h2>
+        <template v-slot:image>
+          <h2 class="variants-title">{{ $t('gamerules.step8') }}</h2>
           <ul class="variants">
             <li v-for="variant in $t('gamerules.variants')" :key="variant">{{ variant }}</li>
           </ul>
@@ -85,9 +91,11 @@ import Step from '@/components/StepsSlider/Step'
 import DangerIcon from '@/components/rules/DangerIcon'
 import TrappedGrape from '@/components/rules/TrappedGrape'
 import EatGrape from '@/components/rules/EatGrape'
+import FillGlass from '@/components/rules/FillGlass'
 export default {
   name: 'Rules',
   components: {
+    FillGlass,
     EatGrape,
     TrappedGrape,
     DangerIcon,
@@ -120,6 +128,40 @@ export default {
 .img-step-3 {
   width: 50%;
 }
+.piou-text {
+  font-weight: bold;
+  font-size: 15vw;
+  color: $theme-color1;
+  span {
+    display: inline-block;
+    animation: letter 4s infinite $transition-easing;
+
+    @for $i from 2 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: ($i - 1) * .05s;
+      }
+    }
+  }
+  @keyframes letter {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    20% {
+      transform: none;
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
 .placeholder {
   background-color: #2d374a;
   width: 150px;
@@ -134,6 +176,21 @@ export default {
 .description {
   padding: 0 30px;
   margin: 0;
+  font-size: 18px;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+.variants-title {
+  padding: 30px;
+  align-self: flex-start;
+  margin: 0;
+  font-size: 30px;
+  color: $theme-color1;
+}
+.variants {
+  margin: 0;
+  padding: 0 30px 0 60px;
   font-size: 18px;
 }
 

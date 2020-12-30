@@ -58,7 +58,8 @@ export default {
     },
     annotation: {
       required: false,
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {

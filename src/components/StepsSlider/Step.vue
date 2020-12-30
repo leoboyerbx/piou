@@ -49,6 +49,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   flex-grow: 1;
+}
+.description {
+  min-height: 30%;
 }
 </style>
