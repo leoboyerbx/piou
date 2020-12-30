@@ -1,4 +1,5 @@
-<babeledit_project be_version="2.7.1" version="1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<babeledit_project be_version="2.8.0" version="1.2">
     <!--
 
     BabelEdit project file
@@ -11,9 +12,9 @@
     <preset_collections/>
     <framework>vue-json</framework>
     <filename>piou.babel</filename>
-    <source_root_dir></source_root_dir>
+    <source_root_dir/>
     <folder_node>
-        <name></name>
+        <name/>
         <children>
             <folder_node>
                 <name>dic</name>
@@ -21,9 +22,9 @@
                     <concept_node>
                         <name>grape</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -38,9 +39,9 @@
                     <concept_node>
                         <name>grapeWithNum</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -55,9 +56,9 @@
                     <concept_node>
                         <name>sip</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -77,9 +78,9 @@
                     <concept_node>
                         <name>bigPiou</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -100,9 +101,9 @@
                                     <concept_node>
                                         <name>hint</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -117,9 +118,9 @@
                                     <concept_node>
                                         <name>name</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -139,9 +140,9 @@
                                     <concept_node>
                                         <name>hint</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -156,9 +157,9 @@
                                     <concept_node>
                                         <name>name</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -178,9 +179,9 @@
                                     <concept_node>
                                         <name>hint</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -195,9 +196,9 @@
                                     <concept_node>
                                         <name>name</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -214,9 +215,9 @@
                             <concept_node>
                                 <name>hint</name>
                                 <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
+                                <description/>
+                                <comment/>
+                                <default_text/>
                                 <translations>
                                     <translation>
                                         <language>en-US</language>
@@ -231,9 +232,9 @@
                             <concept_node>
                                 <name>label</name>
                                 <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
+                                <description/>
+                                <comment/>
+                                <default_text/>
                                 <translations>
                                     <translation>
                                         <language>en-US</language>
@@ -251,9 +252,9 @@
                                     <concept_node>
                                         <name>hint</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -268,9 +269,9 @@
                                     <concept_node>
                                         <name>name</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -287,9 +288,9 @@
                             <concept_node>
                                 <name>placeholder</name>
                                 <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
+                                <description/>
+                                <comment/>
+                                <default_text/>
                                 <translations>
                                     <translation>
                                         <language>en-US</language>
@@ -304,6 +305,284 @@
                         </children>
                     </folder_node>
                     <folder_node>
+                        <name>grapeSize</name>
+                        <children>
+                            <folder_node>
+                                <name>big</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>huge</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>normal</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>small</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>verybig</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>veryhuge</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                            <folder_node>
+                                <name>verysmall</name>
+                                <children>
+                                    <concept_node>
+                                        <name>hint</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                    <concept_node>
+                                        <name>name</name>
+                                        <definition_loaded>false</definition_loaded>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
+                                        <translations>
+                                            <translation>
+                                                <language>en-US</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                            <translation>
+                                                <language>fr-FR</language>
+                                                <approved>false</approved>
+                                            </translation>
+                                        </translations>
+                                    </concept_node>
+                                </children>
+                            </folder_node>
+                        </children>
+                    </folder_node>
+                    <folder_node>
                         <name>group</name>
                         <children>
                             <folder_node>
@@ -312,9 +591,9 @@
                                     <concept_node>
                                         <name>downInOne</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -329,9 +608,9 @@
                                     <concept_node>
                                         <name>drinkSome</name>
                                         <definition_loaded>false</definition_loaded>
-                                        <description></description>
-                                        <comment></comment>
-                                        <default_text></default_text>
+                                        <description/>
+                                        <comment/>
+                                        <default_text/>
                                         <translations>
                                             <translation>
                                                 <language>en-US</language>
@@ -350,9 +629,9 @@
                     <concept_node>
                         <name>victory</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -369,9 +648,9 @@
             <concept_node>
                 <name>piou</name>
                 <definition_loaded>false</definition_loaded>
-                <description></description>
-                <comment></comment>
-                <default_text></default_text>
+                <description/>
+                <comment/>
+                <default_text/>
                 <translations>
                     <translation>
                         <language>en-US</language>
@@ -386,9 +665,9 @@
             <concept_node>
                 <name>slogan</name>
                 <definition_loaded>false</definition_loaded>
-                <description></description>
-                <comment></comment>
-                <default_text></default_text>
+                <description/>
+                <comment/>
+                <default_text/>
                 <translations>
                     <translation>
                         <language>en-US</language>
@@ -406,9 +685,9 @@
                     <concept_node>
                         <name>back</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -423,9 +702,9 @@
                     <concept_node>
                         <name>continue</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -443,9 +722,9 @@
                             <concept_node>
                                 <name>group</name>
                                 <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
+                                <description/>
+                                <comment/>
+                                <default_text/>
                                 <translations>
                                     <translation>
                                         <language>en-US</language>
@@ -460,9 +739,9 @@
                             <concept_node>
                                 <name>versus</name>
                                 <definition_loaded>false</definition_loaded>
-                                <description></description>
-                                <comment></comment>
-                                <default_text></default_text>
+                                <description/>
+                                <comment/>
+                                <default_text/>
                                 <translations>
                                     <translation>
                                         <language>en-US</language>
@@ -479,9 +758,9 @@
                     <concept_node>
                         <name>gameSettings</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -496,9 +775,9 @@
                     <concept_node>
                         <name>linesNum</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -513,9 +792,9 @@
                     <concept_node>
                         <name>newGame</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -530,9 +809,9 @@
                     <concept_node>
                         <name>player</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -547,9 +826,9 @@
                     <concept_node>
                         <name>selectGameMode</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -564,9 +843,9 @@
                     <concept_node>
                         <name>selectOption</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -581,9 +860,9 @@
                     <concept_node>
                         <name>start</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -598,9 +877,9 @@
                     <concept_node>
                         <name>startOver</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -615,9 +894,9 @@
                     <concept_node>
                         <name>vs</name>
                         <definition_loaded>false</definition_loaded>
-                        <description></description>
-                        <comment></comment>
-                        <default_text></default_text>
+                        <description/>
+                        <comment/>
+                        <default_text/>
                         <translations>
                             <translation>
                                 <language>en-US</language>
@@ -637,12 +916,12 @@
     <languages>
         <language>
             <code>en-US</code>
-            <source_id></source_id>
+            <source_id/>
             <source_file>en.json</source_file>
         </language>
         <language>
             <code>fr-FR</code>
-            <source_id></source_id>
+            <source_id/>
             <source_file>fr.json</source_file>
         </language>
     </languages>
@@ -658,8 +937,8 @@
         <save_empty_translations>true</save_empty_translations>
         <copy_templates>
             <copy_template>$t('%1')</copy_template>
-            <copy_template></copy_template>
-            <copy_template></copy_template>
+            <copy_template/>
+            <copy_template/>
         </copy_templates>
     </editor_configuration>
     <primary_language>en-US</primary_language>

@@ -17,6 +17,8 @@ Vue.mixin({
   }
 })
 
+store.commit('setLocale', i18n.locale)
+
 new Vue({
   store,
   router,

@@ -27,6 +27,36 @@
 			},
 			"placeholder": "Select difficulty"
 		},
+		"grapeSize": {
+			"big": {
+				"hint": "34 grapes",
+				"name": "Big"
+			},
+			"huge": {
+				"hint": "53 grapes",
+				"name": "Huge"
+			},
+			"normal": {
+				"hint": "26 grapes",
+				"name": "Normal"
+			},
+			"small": {
+				"hint": "19 grapes",
+				"name": "Small"
+			},
+			"verybig": {
+				"hint": "43 grapes",
+				"name": "Very big"
+			},
+			"veryhuge": {
+				"hint": "64 grapes",
+				"name": "Gigantic"
+			},
+			"verysmall": {
+				"hint": "13 grapes",
+				"name": "Very small"
+			}
+		},
 		"group": {
 			"hints": {
 				"downInOne": "You drink down in one !",
@@ -45,7 +75,7 @@
 			"versus": "2 players 1v1"
 		},
 		"gameSettings": "Game settings",
-		"linesNum": "Number of lines",
+		"linesNum": "Bunch size",
 		"newGame": "New game",
 		"player": "player | players",
 		"selectGameMode": "Select game mode",

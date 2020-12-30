@@ -30,9 +30,7 @@ export default {
       default: () => ([]),
       type: Array
     },
-    value: {
-      type: String
-    },
+    value: {},
     placeholder: {
       default: function () {
         return this.$t('ui.selectOption')
@@ -62,6 +60,16 @@ export default {
       showDropdown: false,
       renderedPlaceholder: this.placeholder
     }
+  },
+  created () {
+    this.unsubscribe = this.$store.subscribe((mutation) => {
+      if (mutation.type === 'setLocale') {
+        this.bindValueToProp()
+      }
+    })
+  },
+  destroyed () {
+    this.unsubscribe()
   },
   mounted () {
     this.bindValueToProp()

@@ -98,7 +98,7 @@ export default {
     },
     targetRandomGrape () {
       this.targetGrape = this.$refs.grapes.randomGrape(true).key
-      console.log('target grape: ' + this.targetGrape)
+      // console.log('target grape: ' + this.targetGrape)
     },
     eatGrape (key) {
       this.eatenGrapes.push(key)

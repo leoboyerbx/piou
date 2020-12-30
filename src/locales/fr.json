@@ -27,6 +27,36 @@
 			},
 			"placeholder": "Sélectionner la difficulté"
 		},
+		"grapeSize": {
+			"big": {
+				"hint": "34 raisins",
+				"name": "Grande"
+			},
+			"huge": {
+				"hint": "53 raisins",
+				"name": "Énorme"
+			},
+			"normal": {
+				"hint": "26 raisins",
+				"name": "Normale"
+			},
+			"small": {
+				"hint": "19 raisins",
+				"name": "Petite"
+			},
+			"verybig": {
+				"hint": "43 raisins",
+				"name": "Très Grande"
+			},
+			"veryhuge": {
+				"hint": "64 raisins",
+				"name": "Gigantesque"
+			},
+			"verysmall": {
+				"hint": "13 raisins",
+				"name": "Très petite"
+			}
+		},
 		"group": {
 			"hints": {
 				"downInOne": "Tu fais cul-sec !",
@@ -45,7 +75,7 @@
 			"versus": "2 joueurs 1v1"
 		},
 		"gameSettings": "Paramètres de jeu",
-		"linesNum": "Nombre de lignes",
+		"linesNum": "Taille de la grappe",
 		"newGame": "Jouer",
 		"player": "joueur | joueurs",
 		"selectGameMode": "Sélectionner un mode de jeu",

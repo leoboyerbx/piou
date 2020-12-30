@@ -39,7 +39,6 @@ export default {
   },
   watch: {
     currentLanguage (newVal) {
-      console.log(newVal)
       this.$emit('update', newVal)
     }
   },

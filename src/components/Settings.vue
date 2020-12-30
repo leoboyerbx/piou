@@ -3,7 +3,6 @@
         <div class="settings-fields">
           <form @submit.prevent="startGame">
             <h1 v-if="title">{{ title }}</h1>
-            <!--<h1>Who's playing ?</h1>-->
             <div v-for="field in fields" :key="field.name" class="settings-field">
 
               <div v-if="field.type === 'input'" class="input-container settings-field">
@@ -12,7 +11,7 @@
                 <div class="bar"></div>
               </div>
 
-              <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint"></vue-select>
+              <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint" :value="field.value"></vue-select>
 
               <p v-else-if="field.type === 'vs'" class="vs">{{ $t('ui.vs') }}</p>
 
@@ -71,9 +70,9 @@ export default {
 
   .settings-fields {
     position: absolute;
-    height: 100%;
+    height: auto;
     width: 100%;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 
     .settings-field {
       width: 100%;

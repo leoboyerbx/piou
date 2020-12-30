@@ -63,6 +63,7 @@ export default {
   methods: {
     updateLang (lang) {
       this.$i18n.locale = lang
+      this.$store.commit('setLocale', lang)
     },
     onSwipe (e) {
       this.open = false

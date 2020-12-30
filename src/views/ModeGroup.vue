@@ -5,14 +5,58 @@
         @start-game="startGame"
         :title="$t('ui.gameSettings')"
         :fields="[
+            // {
+            //   name: 'linesNum',
+            //   type: 'input',
+            //   inputType: 'number',
+            //   label: $t('ui.linesNum'),
+            //   min: '4',
+            //   initial: 6,
+            //   required: true
+            // },
             {
               name: 'linesNum',
-              type: 'input',
-              inputType: 'number',
+              type: 'select',
               label: $t('ui.linesNum'),
-              min: '4',
-              initial: 6,
-              required: true
+              required: true,
+              value: 6,
+              options: [
+                {
+                  value: 5,
+                  name: $t('game.grapeSize.verysmall.name'),
+                  hint: $t('game.grapeSize.verysmall.hint')
+                },
+                {
+                  value: 6,
+                  name: $t('game.grapeSize.small.name'),
+                  hint: $t('game.grapeSize.small.hint')
+                },
+                {
+                  value: 7,
+                  name: $t('game.grapeSize.normal.name'),
+                  hint: $t('game.grapeSize.normal.hint')
+                },
+                {
+                  value: 8,
+                  name: $t('game.grapeSize.big.name'),
+                  hint: $t('game.grapeSize.big.hint')
+                },
+                {
+                  value: 9,
+                  name: $t('game.grapeSize.verybig.name'),
+                  hint: $t('game.grapeSize.verybig.hint')
+                },
+                {
+                  value: 10,
+                  name: $t('game.grapeSize.huge.name'),
+                  hint: $t('game.grapeSize.huge.hint')
+                },
+                {
+                  value: 11,
+                  name: $t('game.grapeSize.veryhuge.name'),
+                  hint: $t('game.grapeSize.veryhuge.hint')
+                }
+              ]
             },
             {
               name: 'difficulty',
@@ -21,6 +65,7 @@
               placeholder: $t('game.difficulty.placeholder'),
               defaultHint: $t('game.difficulty.hint'),
               required: true,
+              value: '0.5',
               options: [
                 {
                   value: '0.25',
