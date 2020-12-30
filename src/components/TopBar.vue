@@ -6,7 +6,7 @@
           <h1>{{ $c($t('piou')) }}</h1>
           <p>{{ $t('slogan') }}</p>
         </span>
-        <router-link to="/select-game">
+        <router-link to="/play">
           <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
         </router-link>
       </div>

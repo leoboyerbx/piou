@@ -51,7 +51,7 @@ const routes = [
     }
   },
   {
-    path: '/group',
+    path: '/play',
     name: 'Piou group game',
     component: ModeGroup,
     beforeEnter (to, from, next) {

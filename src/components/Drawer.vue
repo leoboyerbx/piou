@@ -11,6 +11,12 @@
           <li>
             <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" />Accueil</router-link>
           </li>
+          <li>
+            <router-link @click.native="open = false" to="/rules"><RulesIcon :width="22" :height="25" class="icon" />Règles du jeu</router-link>
+          </li>
+          <li>
+            <router-link @click.native="open = false" to="/"><InstallIcon :width="22" :height="25" class="icon" />Installer l'app</router-link>
+          </li>
         </ul>
       </nav>
       <div class="language-switch">
@@ -26,10 +32,14 @@
 import LanguageSwitcher from './elements/LanguageSwitcher'
 import MenuButton from './elements/MenuButton'
 import HomeIcon from '@/icons/HomeIcon'
+import RulesIcon from '@/icons/RulesIcon'
+import InstallIcon from '@/icons/InstallIcon'
 
 export default {
   name: 'Drawer',
   components: {
+    InstallIcon,
+    RulesIcon,
     MenuButton,
     LanguageSwitcher,
     HomeIcon
@@ -132,6 +142,7 @@ export default {
       list-style: none;
       padding: 0;
       li {
+        padding: 8px 0;
         a {
         text-decoration: none;
         color: $theme-grey-dark;

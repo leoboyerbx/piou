@@ -19,7 +19,7 @@
               <p v-else-if="field.type === 'p'" :class="field.class">{{ field.text }}</p>
             </div>
             <div class="buttons">
-              <router-link to="/select-game" class="btn btn-light">{{ $t('ui.back') }}</router-link>
+              <router-link to="/" class="btn btn-light">{{ $t('ui.back') }}</router-link>
               <button class="btn btn-theme" type="submit">{{ $t('ui.start') }}</button>
             </div>
           </form>
