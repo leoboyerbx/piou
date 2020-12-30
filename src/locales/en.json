@@ -66,7 +66,7 @@
 		"victory": "victory !"
 	},
 	"gamerules": {
-		"step1": "Alcohol abuse is dangerous for health. By continuing, you confirm that you are responsible for any consequences that may arise from using Piou.",
+		"step1": "Alcoholl may harm your health. By continuing, you confirm that you are responsible for any consequences that may arise from using Piou.",
 		"step2": "Piou is a drinking game based on a bunch of grapes. It is played with 2 minimum.",
 		"step3": "In each game, a random grape is trapped, but no one knows which one.",
 		"step4": "In turn, each player \"eats\" one or more grapes.",
@@ -90,6 +90,9 @@
 			"versus": "2 players 1v1"
 		},
 		"gameSettings": "Game settings",
+		"gamerules": "Game rules",
+		"home": "Home",
+		"installApp": "Install app",
 		"linesNum": "Bunch size",
 		"newGame": "New game",
 		"player": "player | players",

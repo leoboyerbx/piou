@@ -179,7 +179,7 @@ export default {
   height: 100%;
 }
 .variants-title {
-  padding: 30px;
+  padding: 40px;
   align-self: flex-start;
   margin: 0;
   font-size: 30px;
@@ -187,7 +187,7 @@ export default {
 }
 .variants {
   margin: 0;
-  padding: 0 30px 0 60px;
+  padding: 0 40px 0 80px;
   font-size: 18px;
 }
 

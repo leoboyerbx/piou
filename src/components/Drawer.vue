@@ -9,13 +9,13 @@
       <nav class="global-nav">
         <ul>
           <li>
-            <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" />Accueil</router-link>
+            <router-link @click.native="open = false" to="/"><HomeIcon :width="22" :height="25" class="icon" />{{ $t('ui.home') }}</router-link>
           </li>
           <li>
-            <router-link @click.native="open = false" to="/rules"><RulesIcon :width="22" :height="25" class="icon" />Règles du jeu</router-link>
+            <router-link @click.native="open = false" to="/rules"><RulesIcon :width="22" :height="25" class="icon" />{{ $t('ui.gamerules') }}</router-link>
           </li>
           <li v-if="deferredPrompt">
-            <a href="#" @click.prevent="install"><InstallIcon :width="22" :height="25" class="icon" />Installer l'app</a>
+            <a href="#" @click.prevent="install"><InstallIcon :width="22" :height="25" class="icon" />{{ $t('ui.installApp') }}</a>
           </li>
         </ul>
       </nav>

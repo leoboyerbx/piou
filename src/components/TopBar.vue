@@ -6,9 +6,14 @@
           <h1>{{ $c($t('piou')) }}</h1>
           <p>{{ $t('slogan') }}</p>
         </span>
-        <router-link to="/play">
-          <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
-        </router-link>
+        <div class="links">
+          <router-link to="/rules">
+            <button class="btn btn-light help"><HelpIcon /></button>
+          </router-link>
+          <router-link to="/play">
+            <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
+          </router-link>
+        </div>
       </div>
     </transition>
     <div class="logo">
@@ -21,8 +26,10 @@
 
 <script>
 
+import HelpIcon from '@/icons/HelpIcon'
 export default {
   name: 'TopBar',
+  components: { HelpIcon },
   props: {
     folded: {
       type: Boolean,
@@ -112,6 +119,15 @@ export default {
       height: 30%;
       width: 100%;
       left: 0;
+    }
+  }
+  .links {
+    display: flex;
+    a:first-child {
+      margin-right: 10px;
+    }
+    .help {
+      color: $theme-grey-dark;
     }
   }
   .start {

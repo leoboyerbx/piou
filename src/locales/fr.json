@@ -90,6 +90,9 @@
 			"versus": "2 joueurs 1v1"
 		},
 		"gameSettings": "Paramètres de jeu",
+		"gamerules": "Règles du jeu",
+		"home": "Accueil",
+		"installApp": "Installer l'app",
 		"linesNum": "Taille de la grappe",
 		"newGame": "Jouer",
 		"player": "joueur | joueurs",
