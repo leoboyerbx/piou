@@ -7,7 +7,7 @@
 <!--&lt;!&ndash;          <img v-if="language.flag" :src="language.flag" :alt="key.toUpperCase()" class="flag">&ndash;&gt;-->
 <!--        </label>-->
 <!--      </div>-->
-      <VueSelect direction="up" :options="availableLanguages" v-model="currentLanguage" @update="currentLanguage = $event" class="language-select" placeholder="Langue"></VueSelect>
+      <VueSelect :watch-locale-update="false" direction="up" :options="availableLanguages" v-model="currentLanguage" @update="currentLanguage = $event" class="language-select" placeholder="Langue"></VueSelect>
     </form>
   </div>
 </template>

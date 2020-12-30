@@ -65,6 +65,21 @@
 		},
 		"victory": "victoire !"
 	},
+	"gamerules": {
+		"step1": "L'abus d'alcool est dangereux pour la santé. En poursuivant, vous confirmez être responsable des éventuelles conséquences que pourrait engendrer l'utilisation de Piou.",
+		"step2": "Piou est un jeu à boire basé sur une grappe de raisins. Il se joue à 2 minimum.",
+		"step3": "À chaque partie, un raisin au hasard est piégé, mais personne ne sait lequel.",
+		"step4": "À tour de rôle, chaque joueur \"mange\" un ou plusieurs raisins.",
+		"step5": "Chaque raisin mangé remplit le verre !",
+		"step6": "Celui qui tombe sur le raisin piégé \"prend le Piou\" !<br> Il boit le nombre de gorgées dans le verre.",
+		"step7": "Après avoir bu, il <b>rejoue</b> et ça continue.",
+		"step8": "Variantes possibles",
+		"variants": {
+			"variant1": "Après un piou, on ne rejoue pas et on passe directement au joueur suivant",
+			"variant2": "Un seul raisin par tour et par personne",
+			"variant3": "N'hésitez pas à inventer vos règles !"
+		}
+	},
 	"piou": "piou !",
 	"slogan": "Le jeu du raisin.",
 	"ui": {

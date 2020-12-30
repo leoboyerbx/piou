@@ -43,6 +43,10 @@ export default {
     label: {
       type: String
     },
+    watchLocaleUpdate: {
+      type: Boolean,
+      default: true
+    },
     maxHeight: {
       type: Number,
       default: 150
@@ -62,14 +66,20 @@ export default {
     }
   },
   created () {
-    this.unsubscribe = this.$store.subscribe((mutation) => {
-      if (mutation.type === 'setLocale') {
-        this.bindValueToProp()
-      }
-    })
+    if (this.watchLocaleUpdate) {
+      this.unsubscribe = this.$store.subscribe((mutation) => {
+        if (mutation.type === 'setLocale') {
+          this.$nextTick(() => {
+            this.bindValueToProp()
+          })
+        }
+      })
+    }
   },
   destroyed () {
-    this.unsubscribe()
+    if (this.watchLocaleUpdate) {
+      this.unsubscribe()
+    }
   },
   mounted () {
     this.bindValueToProp()

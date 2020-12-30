@@ -65,6 +65,21 @@
 		},
 		"victory": "victory !"
 	},
+	"gamerules": {
+		"step1": "Alcohol abuse is dangerous for health. By continuing, you confirm that you are responsible for any consequences that may arise from using Piou.",
+		"step2": "Piou is a drinking game based on a bunch of grapes. It is played with 2 minimum.",
+		"step3": "In each game, a random grape is trapped, but no one knows which one.",
+		"step4": "In turn, each player \"eats\" one or more grapes.",
+		"step5": "Every grape eaten fills the glass !",
+		"step6": "Whoever falls on the trapped grape \"takes the Piou\"!<br> He drinks the number of sips in the glass.",
+		"step7": "After drinking, he <b>plays again</b> and the game continues.",
+		"step8": "Possible variants",
+		"variants": {
+			"variant1": "After a piou, the players doesn't play again and it's the next player's turn",
+			"variant2": "Only one grape per person each turn",
+			"variant3": "Fell free to play with your own rules !"
+		}
+	},
 	"piou": "piou !",
 	"slogan": "The grape game.",
 	"ui": {

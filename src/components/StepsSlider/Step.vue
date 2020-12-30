@@ -1,5 +1,5 @@
 <template>
-  <div class="step">
+  <div class="step" :style="{ pointerEvents: isActive ? 'all' : 'none' }">
     <div class="slot image"
          :style="{
             transform: `translateX(${translateImage})`,
@@ -24,7 +24,8 @@ export default {
     return {
       translateImage: 0,
       opacity: 1,
-      noTransition: false
+      noTransition: false,
+      isActive: false
     }
   }
 }
@@ -38,7 +39,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .slot {
   transition: all .3s $transition-easing;
@@ -48,5 +49,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
 </style>

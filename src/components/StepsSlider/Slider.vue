@@ -104,6 +104,7 @@ export default {
       this.selectedIndex = i
 
       this.steps.forEach((step, index) => {
+        step.isActive = false
         step.opacity = (index === i) ? 1 : 0
         if (index < i) {
           step.translateImage = '-100%'
@@ -111,6 +112,7 @@ export default {
           step.translateImage = '100%'
         } else {
           step.translateImage = 0
+          step.isActive = true
         }
       })
     },
