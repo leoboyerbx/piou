@@ -14,8 +14,8 @@
           <li>
             <router-link @click.native="open = false" to="/rules"><RulesIcon :width="22" :height="25" class="icon" />Règles du jeu</router-link>
           </li>
-          <li>
-            <router-link @click.native="open = false" to="/"><InstallIcon :width="22" :height="25" class="icon" />Installer l'app</router-link>
+          <li v-if="deferredPrompt">
+            <a href="#" @click.prevent="install"><InstallIcon :width="22" :height="25" class="icon" />Installer l'app</a>
           </li>
         </ul>
       </nav>
@@ -47,8 +47,17 @@ export default {
   props: {
   },
   data: () => ({
-    open: false
+    open: false,
+    deferredPrompt: null
   }),
+  created () {
+    window.addEventListener('beforeinstallprompt', this.listenerBeforeInstall.bind(this))
+    window.addEventListener('appinstalled', this.listenerAppInstalled.bind(this))
+  },
+  destroyed () {
+    window.removeEventListener('beforeinstallprompt', this.listenerBeforeInstall.bind(this))
+    window.removeEventListener('appinstalled', this.listenerAppInstalled.bind(this))
+  },
   computed: {
   },
   methods: {
@@ -57,6 +66,16 @@ export default {
     },
     onSwipe (e) {
       this.open = false
+    },
+    listenerBeforeInstall (e) {
+      e.preventDefault()
+      this.deferredPrompt = e
+    },
+    listenerAppInstalled () {
+      this.deferredPrompt = null
+    },
+    async install () {
+      this.deferredPrompt.prompt()
     }
   }
 
