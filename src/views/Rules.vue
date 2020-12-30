@@ -101,9 +101,6 @@ export default {
     DangerIcon,
     Step,
     Slider
-  },
-  created () {
-    console.log(this.$t('gamerules'))
   }
 }
 </script>

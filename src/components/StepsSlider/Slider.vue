@@ -57,20 +57,17 @@ export default {
 
       if (stepToGo !== this.selectedIndex) this.triggeredTouchEnd = true
       this.goToStep(stepToGo)
-      console.log('touchend')
       this.dragStartX = null
     },
 
     onSwipeLeft (e) {
       if (!this.triggeredTouchEnd) {
-        console.log('swipe ', e)
         this.goToStep(Math.min(this.steps.length - 1, this.selectedIndex + 1))
         this.triggeredTouchEnd = false
       }
     },
     onSwipeRight (e) {
       if (!this.triggeredTouchEnd) {
-        console.log('swipe ', e)
         this.goToStep(Math.max(0, this.selectedIndex - 1))
         this.triggeredTouchEnd = false
       }

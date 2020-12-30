@@ -92,7 +92,6 @@ export default {
   computed: {
     dropdownHeight () {
       if (this.showDropdown) {
-        console.log(this.maxHeight, this.options.length * 50)
         return Math.min(
           this.maxHeight, this.options.length * 50
         ) + 'px'
