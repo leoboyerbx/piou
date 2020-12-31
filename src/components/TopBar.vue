@@ -1,17 +1,19 @@
 <template>
   <div id="topbar" :class="{unfolded: !folded, hidden: hidden}">
-    <div class="folded-items">
-      <MenuButton id="menubutton" />
-    </div>
     <transition name="fade">
       <div v-show="!folded" class="start">
         <span>
-          <h1>Piou !</h1>
-          <p>The grape game.</p>
+          <h1>{{ $c($t('piou')) }}</h1>
+          <p>{{ $t('slogan') }}</p>
         </span>
-        <router-link to="/select-game">
-          <button @click="newGame" class="btn btn-theme">New game</button>
-        </router-link>
+        <div class="links">
+          <router-link to="/rules">
+            <button class="btn btn-light help"><HelpIcon /></button>
+          </router-link>
+          <router-link to="/play">
+            <button @click="newGame" class="btn btn-theme">{{ $t('ui.newGame') }}</button>
+          </router-link>
+        </div>
       </div>
     </transition>
     <div class="logo">
@@ -23,13 +25,11 @@
 </template>
 
 <script>
-import MenuButton from './MenuButton'
 
+import HelpIcon from '@/icons/HelpIcon'
 export default {
   name: 'TopBar',
-  components: {
-    MenuButton
-  },
+  components: { HelpIcon },
   props: {
     folded: {
       type: Boolean,
@@ -104,8 +104,9 @@ export default {
   .logo {
     position: absolute;
     height: 60%;
-    width: 100%;
+    width: 20%;
     top: 20%;
+    left: 40%;
     transition: all .5s $transition-easing;
     img {
       width: 100%;
@@ -117,7 +118,16 @@ export default {
       top: 20%;
       height: 30%;
       width: 100%;
-
+      left: 0;
+    }
+  }
+  .links {
+    display: flex;
+    a:first-child {
+      margin-right: 10px;
+    }
+    .help {
+      color: $theme-grey-dark;
     }
   }
   .start {

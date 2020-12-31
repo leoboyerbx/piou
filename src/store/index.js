@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     topBar: 'expanded',
-    gameSettings: {}
+    gameSettings: {},
+    currentLocale: ''
   },
   mutations: {
     topBar (state, set) {
@@ -14,6 +15,9 @@ const store = new Vuex.Store({
     },
     gameSettings (state, settings) {
       state.gameSettings = settings
+    },
+    setLocale (state, set) {
+      state.currentLocale = set
     }
   },
   actions: {

@@ -3,12 +3,14 @@
     <div class="label">
       {{ label }}
     </div>
-    <div class="vue-select" @click="toggleDropdown"><span class="selected-option">{{ renderedPlaceholder }}
-        <svg width="24" height="24" viewBox="0 0 24 24">
+    <div class="vue-select" @click="toggleDropdown" :class="direction">
+      <span class="selected-option">{{ renderedPlaceholder }}
+        <svg width="24" height="24" viewBox="0 0 24 24" class="arrow" :class="[ direction, { reversed: showDropdown } ]">
           <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
-        </svg></span>
+        </svg>
+      </span>
       <transition name="slide">
-        <div class="dropdown-options-container" v-show="showDropdown">
+        <div class="dropdown-options-container" :class="[ { 'h-2' : options.length < 3 }, direction ]" v-show="showDropdown">
           <div class="dropdown-options" v-for="option in options" :class="{'selected': option === selected }" :key="option.value">
             <div class="dropdown-options--cell" @click="selectOption(option)"><span class="option-text">{{ option.name }}</span></div>
           </div>
@@ -28,8 +30,11 @@ export default {
       default: () => ([]),
       type: Array
     },
+    value: {},
     placeholder: {
-      default: 'Select an option',
+      default: function () {
+        return this.$t('ui.selectOption')
+      },
       type: String
     },
     defaultHint: {
@@ -37,6 +42,18 @@ export default {
     },
     label: {
       type: String
+    },
+    watchLocaleUpdate: {
+      type: Boolean,
+      default: true
+    },
+    maxHeight: {
+      type: Number,
+      default: 150
+    },
+    direction: {
+      type: String,
+      default: 'down'
     }
   },
   data () {
@@ -48,14 +65,52 @@ export default {
       renderedPlaceholder: this.placeholder
     }
   },
+  created () {
+    if (this.watchLocaleUpdate) {
+      this.unsubscribe = this.$store.subscribe((mutation) => {
+        if (mutation.type === 'setLocale') {
+          this.$nextTick(() => {
+            this.bindValueToProp()
+          })
+        }
+      })
+    }
+  },
+  destroyed () {
+    if (this.watchLocaleUpdate) {
+      this.unsubscribe()
+    }
+  },
+  mounted () {
+    this.bindValueToProp()
+  },
+  watch: {
+    value () {
+      this.bindValueToProp()
+    }
+  },
+  computed: {
+    dropdownHeight () {
+      if (this.showDropdown) {
+        return Math.min(
+          this.maxHeight, this.options.length * 50
+        ) + 'px'
+      }
+      return 0
+    }
+  },
   methods: {
     toggleDropdown () {
       this.showDropdown = !this.showDropdown
     },
-    selectOption (option) {
+    bindValueToProp () {
+      if (this.value) {
+        this.selectOption(this.options.find(option => option.value === this.value), false)
+      }
+    },
+    selectOption (option, emit = true) {
       this.selected = option
       this.renderedPlaceholder = option.name
-      // inform parent (the form) of a selection so the model can be updated.
       this.$emit('update', this.selected.value)
     }
   }
@@ -109,6 +164,9 @@ export default {
     transition: all .4s $transition-easing;
     position: relative;
 
+    display: flex;
+    flex-direction: column;
+
     .selected-option {
       @include ellipsis();
       display: inline-block;
@@ -117,6 +175,7 @@ export default {
       position: relative;
       box-sizing: border-box;
       transition: all .4s $transition-easing;
+      user-select: none;
 
       &:hover {
         color: rgba(0,0,0,.45);
@@ -128,9 +187,13 @@ export default {
         right: 8px;
         top: 50%;
         transform: translateY(-50%);
-        transition: fill .6s $transition-easing;
+        transition: all .3s $transition-easing;
         &:hover {
           fill: darken($vue-teal, 15%);
+        }
+
+        &.down.reversed, &.up:not(.reversed) {
+          transform: translateY(-50%) rotate(180deg);
         }
       }
     }
@@ -140,12 +203,19 @@ export default {
       bottom: 0;
       opacity: 0;
       z-index: -1;
+      user-select: none;
     }
   }
-
   .dropdown-options-container {
     overflow-y: scroll;
+    user-select: none;
     height: 150px;
+    &.up {
+      order: -1
+    }
+  }
+  .h-2 {
+    height: 100px;
   }
 
   .dropdown-options--cell {

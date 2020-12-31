@@ -1,0 +1,106 @@
+{
+	"dic": {
+		"grape": "raisin | raisins",
+		"grapeWithNum": "0 raisins | un raisin | {n} raisins",
+		"sip": "gorgée | gorgées"
+	},
+	"game": {
+		"bigPiou": "PIOUU !",
+		"difficulty": {
+			"difficult": {
+				"hint": "1 raisin = 1 gorgée",
+				"name": "Difficile"
+			},
+			"easy": {
+				"hint": "4 raisins = 1 gorgée",
+				"name": "Facile"
+			},
+			"hardcore": {
+				"hint": "1 raisin = 2 gorgées !",
+				"name": "Hardcore"
+			},
+			"hint": "La difficulté affecte le nombre de gorgées par raisin",
+			"label": "Difficulté",
+			"normal": {
+				"hint": "2 raisins = 1 gorgée",
+				"name": "Normal"
+			},
+			"placeholder": "Sélectionner la difficulté"
+		},
+		"grapeSize": {
+			"big": {
+				"hint": "34 raisins",
+				"name": "Grande"
+			},
+			"huge": {
+				"hint": "53 raisins",
+				"name": "Énorme"
+			},
+			"normal": {
+				"hint": "26 raisins",
+				"name": "Normale"
+			},
+			"small": {
+				"hint": "19 raisins",
+				"name": "Petite"
+			},
+			"verybig": {
+				"hint": "43 raisins",
+				"name": "Très Grande"
+			},
+			"veryhuge": {
+				"hint": "64 raisins",
+				"name": "Gigantesque"
+			},
+			"verysmall": {
+				"hint": "13 raisins",
+				"name": "Très petite"
+			}
+		},
+		"group": {
+			"hints": {
+				"downInOne": "Tu fais cul-sec !",
+				"drinkSome": "Tu bois {n} {sips} ;)"
+			}
+		},
+		"victory": "victoire !"
+	},
+	"gamerules": {
+		"step1": "L'abus d'alcool est dangereux pour la santé. En poursuivant, vous confirmez être responsable des éventuelles conséquences que pourrait engendrer l'utilisation de Piou.",
+		"step2": "Piou est un jeu à boire basé sur une grappe de raisins. Il se joue à 2 minimum.",
+		"step3": "À chaque partie, un raisin au hasard est piégé, mais personne ne sait lequel.",
+		"step4": "À tour de rôle, chaque joueur \"mange\" un ou plusieurs raisins.",
+		"step5": "Chaque raisin mangé remplit le verre !",
+		"step6": "Celui qui tombe sur le raisin piégé \"prend le Piou\" !<br> Il boit le nombre de gorgées dans le verre.",
+		"step7": "Après avoir bu, il <b>rejoue</b> et ça continue.",
+		"step8": "Celui qui mange le dernier raisin fait cul-sec !",
+		"step9": "Variantes possibles",
+		"variants": {
+			"variant1": "Après un piou, on ne rejoue pas et on passe directement au joueur suivant",
+			"variant2": "Un seul raisin par tour et par personne",
+			"variant3": "N'hésitez pas à inventer vos règles !"
+		}
+	},
+	"piou": "piou !",
+	"slogan": "Le jeu du raisin.",
+	"ui": {
+		"back": "Retour",
+		"continue": "Continuer",
+		"gameMode": {
+			"group": "Groupe",
+			"versus": "2 joueurs 1v1"
+		},
+		"gameSettings": "Paramètres de jeu",
+		"gamerules": "Règles du jeu",
+		"home": "Accueil",
+		"installApp": "Installer l'app",
+		"linesNum": "Taille de la grappe",
+		"newGame": "Jouer",
+		"player": "joueur | joueurs",
+		"selectGameMode": "Sélectionner un mode de jeu",
+		"selectOption": "Choisir une option",
+		"start": "Démarrer",
+		"startOver": "Recommencer",
+		"vs": "VS"
+	}
+}

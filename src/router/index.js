@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store'
 import Mode1v1 from '../views/Mode1v1'
-import GameSelector from '../views/GameSelector'
 import ModeGroup from '@/views/ModeGroup'
+import Rules from '@/views/Rules'
 
 Vue.use(VueRouter)
 
@@ -23,14 +23,23 @@ const routes = [
     }
   },
   {
-    path: '/select-game',
+    path: '/rules',
     name: 'Piou !',
-    component: GameSelector,
+    component: Rules,
     beforeEnter (to, from, next) {
       topBar('default')
       next()
     }
   },
+  // {
+  //   path: '/select-game',
+  //   name: 'Piou !',
+  //   component: GameSelector,
+  //   beforeEnter (to, from, next) {
+  //     topBar('default')
+  //     next()
+  //   }
+  // },
   {
     path: '/1v1',
     name: 'Piou 1v1',
@@ -41,7 +50,7 @@ const routes = [
     }
   },
   {
-    path: '/group',
+    path: '/play',
     name: 'Piou group game',
     component: ModeGroup,
     beforeEnter (to, from, next) {

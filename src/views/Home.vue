@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-   hguyj
   </div>
 </template>
 

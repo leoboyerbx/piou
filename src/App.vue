@@ -3,15 +3,18 @@
   <div id="app">
     <TopBar :folded="topBar !== 'expanded'" :hidden="topBar === 'hidden'" />
     <router-view />
+    <Drawer></Drawer>
   </div>
 </template>
 
 <script>
 import TopBar from './components/TopBar.vue'
+import Drawer from './components/Drawer'
 
 export default {
   name: 'App',
   components: {
+    Drawer,
     TopBar
   },
   data () {
@@ -50,6 +53,7 @@ export default {
     font-family: "Mark Pro", sans-serif;
     color: $theme-black;
     background-color: $background;
+    overflow-x: hidden;
   }
 
   .input-container {

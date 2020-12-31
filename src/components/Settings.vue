@@ -3,7 +3,6 @@
         <div class="settings-fields">
           <form @submit.prevent="startGame">
             <h1 v-if="title">{{ title }}</h1>
-            <!--<h1>Who's playing ?</h1>-->
             <div v-for="field in fields" :key="field.name" class="settings-field">
 
               <div v-if="field.type === 'input'" class="input-container settings-field">
@@ -11,13 +10,16 @@
                 <label :for="field.name">{{ field.label }}</label>
                 <div class="bar"></div>
               </div>
-              <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint"></vue-select>
-              <p v-else-if="field.type === 'vs'" class="vs">VS</p>
-              <p v-else-if="field.type === 'p'" :class="field.class">VS</p>
+
+              <vue-select v-else-if="field.type === 'select'" :options="field.options" class="settings-field" @update="fieldsValues[field.name] = $event" :placeholder="field.placeholder" :label="field.label" :default-hint="field.defaultHint" :value="field.value"></vue-select>
+
+              <p v-else-if="field.type === 'vs'" class="vs">{{ $t('ui.vs') }}</p>
+
+              <p v-else-if="field.type === 'p'" :class="field.class">{{ field.text }}</p>
             </div>
             <div class="buttons">
-              <router-link to="/select-game" class="btn btn-light">Back</router-link>
-              <button class="btn btn-theme" type="submit">Start</button>
+              <router-link to="/" class="btn btn-light">{{ $t('ui.back') }}</router-link>
+              <button class="btn btn-theme" type="submit">{{ $t('ui.start') }}</button>
             </div>
           </form>
         </div>
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import VueSelect from '@/components/Select'
+import VueSelect from '@/components/elements/Select'
 
 export default {
   name: 'Settings',
@@ -68,9 +70,9 @@ export default {
 
   .settings-fields {
     position: absolute;
-    height: 100%;
+    height: auto;
     width: 100%;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 
     .settings-field {
       width: 100%;
@@ -88,7 +90,7 @@ export default {
       font-style: italic;
       text-transform: uppercase;
       font-size: 1.5em;
-      margin: 0;
+      margin: 0 0 20px;
       color: $theme-color1;
     }
     h1 {

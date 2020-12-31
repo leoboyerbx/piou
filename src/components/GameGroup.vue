@@ -9,27 +9,27 @@
     </div>
     <div class="piou-wrapper" :class="{visible: gameStep === 'piou' || gameStep === 'end'}">
       <transition name="slide">
-        <div v-show="gameStep === 'piou'">piou !</div>
+        <div v-show="gameStep === 'piou'">{{ $t('piou') }}</div>
       </transition>
       <transition name="slide">
-        <div v-show="gameStep === 'end'">PIOUU !</div>
+        <div v-show="gameStep === 'end'">{{ $t('game.bigPiou') }}</div>
       </transition>
     </div>
     <div class="hint-wrapper" ref="hintWrapper" :class="{ visible: ['piou', 'end'].includes(gameStep) }">
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'piou'">
-          <p><strong>Piou !</strong> You <i>eat <strong>{{ grapesToEat }}</strong> grapes</i> ;)</p>
+          <p><strong>{{ $c($t('piou')) }}</strong> {{ $tc('game.group.hints.drinkSome', grapesToEat, { sips: $tc('dic.sip', grapesToEat) }) }} ;)</p>
           <div class="buttons">
-            <button class="btn btn-light" @click="startOver">Start over</button>
-            <button class="btn btn-theme" @click="continueGame">Continue</button>
+            <button class="btn btn-light" @click="startOver">{{ $t('ui.startOver') }}</button>
+            <button class="btn btn-theme" @click="continueGame">{{ $t('ui.continue') }}</button>
           </div>
         </div>
       </transition>
       <transition name="hint">
         <div class="hint" v-show="gameStep === 'end'">
-          <p><strong>Piou !</strong> You <i>eat <strong>all the grapes</strong> </i> ;)</p>
+          <p><strong>{{ $c($t('piou')) }}</strong> {{ $t('game.group.hints.downInOne') }} ;)</p>
           <div class="buttons">
-            <button class="btn btn-theme" @click="startOver">Start over</button>
+            <button class="btn btn-theme" @click="startOver">{{ $t('ui.startOver') }}</button>
           </div>
         </div>
       </transition>
@@ -44,7 +44,7 @@
 
 <script>
 import Grapes from '@/components/Grapes.vue'
-import Glass from '@/components/Glass'
+import Glass from '@/components/elements/Glass'
 
 export default {
   name: 'GameGroup',
@@ -98,7 +98,7 @@ export default {
     },
     targetRandomGrape () {
       this.targetGrape = this.$refs.grapes.randomGrape(true).key
-      console.log('target grape: ' + this.targetGrape)
+      // console.log('target grape: ' + this.targetGrape)
     },
     eatGrape (key) {
       this.eatenGrapes.push(key)
