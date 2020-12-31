@@ -21,5 +21,6 @@ const userLang = navigator.language || navigator.userLanguage
 export default new VueI18n({
   locale: userLang || process.env.VUE_APP_I18N_LOCALE || 'en',
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
-  messages: loadLocaleMessages()
+  messages: loadLocaleMessages(),
+  silentTranslationWarn: true
 })

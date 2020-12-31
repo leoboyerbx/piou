@@ -53,6 +53,6 @@ export default {
   flex-grow: 1;
 }
 .description {
-  min-height: 30%;
+  min-height: 40%;
 }
 </style>

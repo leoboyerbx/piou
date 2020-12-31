@@ -4,7 +4,7 @@
 
       <Step>
         <template v-slot:image>
-          <DangerIcon class="danger-icon" width="50%" height="auto" />
+          <DangerIcon class="danger-icon" width="50%" height="100%" />
         </template>
         <template v-slot:description>
           <div class="description"><p v-html="$t('gamerules.step1')"></p></div>
@@ -112,7 +112,7 @@ export default {
   position: fixed;
   top: 90px;
   left: 0px;
-  bottom: 0;
+  bottom: 30px;
   right: 0;
 }
 

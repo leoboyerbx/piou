@@ -7,20 +7,46 @@
     v-touch:moving="onTouchMove"
     v-touch:end="onTouchEnd"
   >
-    <slot></slot>
+    <section ref="slides">
+      <slot></slot>
+    </section>
+    <div class="controls">
+      <a href="#"
+         class="action"
+         :class="{ hidden: selectedIndex === 0 }"
+         @click="prevSlide"
+      >
+        <ChevronIcon direction="left" width="40" height="40" />
+      </a>
+      <a href="#"
+         class="action"
+         :class="{ play: selectedIndex >= steps.length - 1 }"
+         @click="onClickNext"
+      >
+        <ChevronIcon direction="right" :play="this.selectedIndex >= this.steps.length -1" width="40" height="40" />
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
 
+import ChevronIcon from '@/icons/ChevronIcon'
 export default {
   name: 'Slider',
   components: {
+    ChevronIcon
   },
   created () {
-    this.steps = this.$children
   },
   mounted () {
+    const steps = []
+    this.$children.forEach(comp => {
+      if (comp.$options.name === 'Step') {
+        steps.push(comp)
+      }
+    })
+    this.steps = steps
     this.goToStep(0)
   },
   data () {
@@ -29,7 +55,8 @@ export default {
       steps: [],
       dragStartX: null,
       clientWidth: 0,
-      triggeredTouchEnd: false
+      triggeredTouchEnd: false,
+      minDeltaX: 10
     }
   },
   methods: {
@@ -44,20 +71,23 @@ export default {
       this.touchTranslation(screenX - this.dragStartX)
     },
     onTouchEnd (e) {
-      this.setTabsTransition(true)
-      const screenX = e.changedTouches[0].screenX
-      let stepToGo = this.selectedIndex
-      const deltaX = screenX - this.dragStartX
-      if (Math.abs(deltaX) > this.clientWidth / 2) {
-        stepToGo -= Math.sign(deltaX)
+      if (this.dragStartX !== null) {
+        this.setTabsTransition(true)
+        const screenX = e.changedTouches[0].screenX
+        let stepToGo = this.selectedIndex
+        const deltaX = screenX - this.dragStartX
+        console.log(deltaX)
+        if (Math.abs(deltaX) > this.clientWidth / 2) {
+          stepToGo -= Math.sign(deltaX)
+        }
+
+        stepToGo = Math.max(0, stepToGo)
+        stepToGo = Math.min(this.steps.length - 1, stepToGo)
+
+        if (stepToGo !== this.selectedIndex) this.triggeredTouchEnd = true
+        this.goToStep(stepToGo)
+        this.dragStartX = null
       }
-
-      stepToGo = Math.max(0, stepToGo)
-      stepToGo = Math.min(this.steps.length - 1, stepToGo)
-
-      if (stepToGo !== this.selectedIndex) this.triggeredTouchEnd = true
-      this.goToStep(stepToGo)
-      this.dragStartX = null
     },
 
     onSwipeLeft (e) {
@@ -115,18 +145,58 @@ export default {
     },
     setTabsTransition (set) {
       this.steps.forEach(step => { step.noTransition = !set })
+    },
+    nextSlide () {
+      this.goToStep(Math.min(this.selectedIndex + 1), this.steps.length - 1)
+    },
+    prevSlide () {
+      this.goToStep(Math.max(0, this.selectedIndex - 1))
+    },
+    onClickNext () {
+      if (this.selectedIndex >= this.steps.length - 1) {
+        this.$router.push('play')
+      } else {
+        this.nextSlide()
+      }
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import '@/scss/globals';
+
 .steps-slider {
   height: 100%;
   position: relative;
   overflow: hidden;
   .step {
-    height: 90%;
+    height: calc(90% - 40px);
+  }
+  .controls {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .action  {
+      color: $theme-grey-dark;
+      transition: all .2s;
+      &:first-child {
+        margin-right: 30px;
+      }
+      &.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      &.play {
+        color: $theme-color1;
+      }
+    }
   }
 }
 </style>
