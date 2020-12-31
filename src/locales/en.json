@@ -5,7 +5,7 @@
 		"sip": "sip | sips"
 	},
 	"game": {
-		"bigPiou": "PIOUUUU !",
+		"bigPiou": "PIOUU !",
 		"difficulty": {
 			"difficult": {
 				"hint": "1 grape = 1 sip",
@@ -73,7 +73,8 @@
 		"step5": "Every grape eaten fills the glass !",
 		"step6": "Whoever falls on the trapped grape \"takes the Piou\"!<br> He drinks the number of sips in the glass.",
 		"step7": "After drinking, he <b>plays again</b> and the game continues.",
-		"step8": "Possible variants",
+		"step8": "The player who eats the last grape empties his glass !",
+		"step9": "Possible variants",
 		"variants": {
 			"variant1": "After a piou, the players doesn't play again and it's the next player's turn",
 			"variant2": "Only one grape per person each turn",

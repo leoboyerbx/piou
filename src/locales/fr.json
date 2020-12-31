@@ -5,7 +5,7 @@
 		"sip": "gorgée | gorgées"
 	},
 	"game": {
-		"bigPiou": "PIOUUUU !",
+		"bigPiou": "PIOUU !",
 		"difficulty": {
 			"difficult": {
 				"hint": "1 raisin = 1 gorgée",
@@ -73,7 +73,8 @@
 		"step5": "Chaque raisin mangé remplit le verre !",
 		"step6": "Celui qui tombe sur le raisin piégé \"prend le Piou\" !<br> Il boit le nombre de gorgées dans le verre.",
 		"step7": "Après avoir bu, il <b>rejoue</b> et ça continue.",
-		"step8": "Variantes possibles",
+		"step8": "Celui qui mange le dernier raisin fait cul-sec !",
+		"step9": "Variantes possibles",
 		"variants": {
 			"variant1": "Après un piou, on ne rejoue pas et on passe directement au joueur suivant",
 			"variant2": "Un seul raisin par tour et par personne",

@@ -73,7 +73,16 @@
 
       <Step>
         <template v-slot:image>
-          <h2 class="variants-title">{{ $t('gamerules.step8') }}</h2>
+          <img src="@/assets/img/glass-full.svg" alt="glass" class="img-step-2">
+        </template>
+        <template v-slot:description>
+          <div class="description"><p v-html="$t('gamerules.step8')"></p></div>
+        </template>
+      </Step>
+
+      <Step>
+        <template v-slot:image>
+          <h2 class="variants-title">{{ $t('gamerules.step9') }}</h2>
           <ul class="variants">
             <li v-for="variant in $t('gamerules.variants')" :key="variant">{{ variant }}</li>
           </ul>
@@ -92,6 +101,7 @@ import DangerIcon from '@/components/rules/DangerIcon'
 import TrappedGrape from '@/components/rules/TrappedGrape'
 import EatGrape from '@/components/rules/EatGrape'
 import FillGlass from '@/components/rules/FillGlass'
+
 export default {
   name: 'Rules',
   components: {
@@ -184,6 +194,9 @@ export default {
   margin: 0;
   font-size: 30px;
   color: $theme-color1;
+}
+.img-glass {
+  width: 40%;
 }
 .variants {
   margin: 0;

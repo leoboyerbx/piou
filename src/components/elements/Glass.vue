@@ -7,7 +7,7 @@
     c0.4,0.2,0.7,2.2,1.1,2.4c26.8,12.8,44,39.8,44,69.5v9.9c0,37.4-25.8,70.1-62.3,77.9c-1,0.2-2.1,0.4-3.1,0.6c0,0-27.8,4-33.1,27.8
     h241.1c-5.3-23.8-33.1-27.8-33.1-27.8c-1.1-0.2-2.1-0.4-3.1-0.6c-36.5-7.8-62.3-40.6-62.3-77.9v-9.9
     C174.3,366,191.5,339,218.3,326.2L218.3,326.2z"/>
-  <text v-if="annotation.length > 0" id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
+  <text v-if="annotation.length > 0" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
   <g>
     <defs>
       <path id="SVGID_1_" d="M235.1,316.8c16.4-12.7,20.3-15.2,36.8-32.2c22.2-26.8,29.4-66.1,28.8-104.6c0-1.2-0.1-6.9-0.1-8.1
@@ -22,7 +22,7 @@
   </g>
   <g v-if="annotation.length > 0">
     <defs>
-      <text id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle">{{ annotation }}</text>
+      <text id="SVGID_5_" x="153" y="200" width="246" class="annotation-text-source" text-anchor="middle" v-text="annotation"></text>
     </defs>
     <clipPath id="SVGID_6_">
       <use xlink:href="#SVGID_5_"  style="overflow:visible;"/>

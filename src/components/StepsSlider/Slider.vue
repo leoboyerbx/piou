@@ -132,14 +132,22 @@ export default {
 
       this.steps.forEach((step, index) => {
         step.isActive = false
+        step.toDisplay = false
         step.opacity = (index === i) ? 1 : 0
         if (index < i) {
           step.translateImage = '-100%'
+          if (index === i - 1) {
+            step.toDisplay = true
+          }
         } else if (index > i) {
           step.translateImage = '100%'
+          if (index === i + 1) {
+            step.toDisplay = true
+          }
         } else {
           step.translateImage = 0
           step.isActive = true
+          step.toDisplay = true
         }
       })
     },

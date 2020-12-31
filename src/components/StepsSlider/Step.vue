@@ -1,5 +1,5 @@
 <template>
-  <div class="step" :style="{ pointerEvents: isActive ? 'all' : 'none' }">
+  <div v-show="toDisplay" class="step" :style="{ pointerEvents: isActive ? 'all' : 'none' }">
     <div class="slot image"
          :style="{
             transform: `translateX(${translateImage})`,
@@ -25,7 +25,8 @@ export default {
       translateImage: 0,
       opacity: 1,
       noTransition: false,
-      isActive: false
+      isActive: false,
+      toDisplay: false
     }
   }
 }
