@@ -5,7 +5,7 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 export default function TabOneScreen() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Tab One</Text>
+            <Text className='text-2xl font-bold btn'>Tab One</Text>
             <View style={styles.separator} />
             <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>
